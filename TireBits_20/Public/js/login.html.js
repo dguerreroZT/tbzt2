@@ -1,5 +1,6 @@
-﻿$(function(){
+$(function(){
 	$('.animsition').animsition();
+	 $('#modal1').modal();
 
 
 	// Check Login
@@ -8,9 +9,10 @@
 			try{
 				let logged = yield TireBits.Usuarios.ingresar(username,nip)
 				if(logged){
-					alert("Login Correcto!!!!")
+					//alert("Login Correcto!!!!")
+					window.location="seleccionarEmpresa.html";
 				}else{
-					alert("--- Usuario o contraseña incorrectos ---")
+					 $('#modal1').modal('open');
 				}
 			}catch(err){
 				console.log(err)
