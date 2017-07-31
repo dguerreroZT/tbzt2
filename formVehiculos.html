@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Materialize</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="materialize/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="css/formVehiculos.html.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script type="text/javascript" src="jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="materialize/materialize.min.js"></script>
+  <script type="text/javascript" src="js/formVehiculos.html.js"></script>  
+ </head>
+<body>
+
+   <nav> 
+    <div class="nav-wrapper indigo">
+      <a class="button" href="index.html"><i class="material-icons left">arrow_back</i></a>
+      <a href="#!" class="brand-logo center"> &nbsp; Formulario Vehiculos </a>
+      <ul class="right">
+         <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+      </ul>
+    </div>
+   </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card-horizontal">
+          <ul class="collection">
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">format_list_numbered</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Numero Economico</label>
+            </div>
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">crop_16_9</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Placas</label>
+            </div>
+            <div class="row">
+              <div class="col s12 m6">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input">Marca</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col s12 m6">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input">Modelo</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">directions_car</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Modelo</label>
+            </div>           
+            <div class="input-field col s12 m12">
+              <i class="material-icons prefix">event</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Año</label>
+            </div>
+            <div class="input-field col s12 m6">  
+              <p>Tipo de Vehiculo         
+              <a class="waves-effect waves-light btn indigo"><i class="material-icons left">directions_car</i>Select</a></p>   
+            </div>
+            <div class="input-field col s12 m6">
+              <input id="input_text" type="text" data-length="100">
+              <label for="input_text">Notas</label>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- Button-->
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating left btn-large waves-effect waves-light indigo darken-4">
+        <i class="material-icons">save</i></a>
+    </div>
+</body>
+</html>
+<!--<div class="input-field col s12  m6">
+              <select>
+                <option value="" disabled selected>Selecciona una opcion</option>
+                <option value="1">Kenworth</option>
+                <option value="2">International</option>
+                <option value="3">Volvo</option>
+              </select>
+              <label>Marca</label>
+</div>
+             <div class="row">
+              <div class="col s12 m6">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input">Modelo</label>
+                  </div>
+                </div>
+              </div>
+</div>-->            
