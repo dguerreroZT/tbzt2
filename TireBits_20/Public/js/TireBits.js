@@ -4,7 +4,8 @@ TireBits = new function(){
 
     var webMethods = {
         Login:'General.asmx/Login',
-        ObtenerAccesoBases:'Empresa.asmx/ObtenerAccesoBases'
+        ObtenerAccesoBases:'Empresa.asmx/ObtenerAccesoBases',
+        ListadoVehiculos:'Vehiculos.asmx/ListadoVehiculos'
     }
     
     var Config = Core.getData("TireBits_Configuracion") || {}
@@ -106,47 +107,6 @@ TireBits = new function(){
                 console.log(errorMessage)
                 return []
             })
-            
-            /*
-            return [
-                {EmpresaID:"ab01", NombreEmpresa:"Coca-Cola FEMSA", CorreoElectronico:"corporation@coca-cola.com",
-                    Bases:[
-                        {BaseID: "wx67", NombreBase:"Altamira"},
-                        {BaseID: "yz89", NombreBase:"Otra Cosa"},
-                    ]
-                },
-                {EmpresaID:"cd02", NombreEmpresa:"Roger", CorreoElectronico:"support@zafirosoft.com",
-                    Bases:[
-                        {BaseID: "aaaa", NombreBase:"Monterrey"},
-                        {BaseID: "xxxx", NombreBase:"Tampico Despedidos"},
-                    ]
-                }
-                ,
-                {EmpresaID:"qq", NombreEmpresa:"Roger", CorreoElectronico:"support@zafirosoft.com",
-                    Bases:[
-                        {BaseID: "aaaa", NombreBase:"Monterrey"},
-                        {BaseID: "xxxx", NombreBase:"Tampico Despedidos"},
-                    ]
-                },
-                {EmpresaID:"ww", NombreEmpresa:"Roger", CorreoElectronico:"support@zafirosoft.com",
-                    Bases:[
-                        {BaseID: "aaaa", NombreBase:"Monterrey"},
-                        {BaseID: "xxxx", NombreBase:"Tampico Despedidos"},
-                    ]
-                },
-                {EmpresaID:"ee", NombreEmpresa:"Roger", CorreoElectronico:"support@zafirosoft.com",
-                    Bases:[
-                        {BaseID: "aaaa", NombreBase:"Monterrey"},
-                        {BaseID: "xxxx", NombreBase:"Tampico Despedidos"},
-                    ]
-                },
-                {EmpresaID:"rr", NombreEmpresa:"Roger", CorreoElectronico:"support@zafirosoft.com",
-                    Bases:[
-                        {BaseID: "aaaa", NombreBase:"Monterrey"},
-                        {BaseID: "xxxx", NombreBase:"Tampico Despedidos"},
-                    ]
-                }
-            ]*/
         }
     }
     
@@ -162,7 +122,12 @@ TireBits = new function(){
         }
     }
     
-    this.Unidades = {
+    this.Vehiculos = {
+        listado: function(BaseID){
+            return [
+                {NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"}
+            ]
+        },
         obtener:function(UnidadID){
             
         }
