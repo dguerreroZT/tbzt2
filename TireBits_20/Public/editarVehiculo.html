@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  </head>
 <body>
-
+  <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper indigo">
       <a class="button" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
@@ -23,13 +23,12 @@
       </ul>
     </div>
    </nav>
-
+  </div>
   <div class="container">
     <div class="row">
       <div class="col s12 m12">
         <div class="card-horizontal">
           <ul class="collection z-depth-1">
-
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">local_shipping</i>
               <input id="txtNoEconomico" type="text" class="validate">
@@ -55,18 +54,14 @@
               <input id="txtAño" type="text" class="validate">
               <label for="txtAño">Año</label>
             </div>
-
-
             <div class="input-field col s12 m6">  
                 <i class="material-icons prefix">event</i>
                 <a id="btnTipoVehiculo" class="waves-effect waves-light btn modal-trigger indigo" href="#modalTipoVehiculo"><i class="material-icons left">directions_car</i><span id="txtTipoVehiculo">Seleccionar Tipo</span></a>
-                
                   <!-- Modal Structure -->
                   <div id="modalTipoVehiculo" class="modal bottom-sheet">
                     <div class="modal-content">
                       <h4>Seleccionar Tipo de Vehículo</h4>
                       <div id="lstTiposVehiculo" class="collection">
-                        
                       </div>
                     </div>
                     <!-- <div class="modal-footer">
@@ -84,7 +79,6 @@
       </div>
     </div>
   </div>
-
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!--script type="text/javascript" src="js/animsition.min.js"></script-->
@@ -94,5 +88,4 @@
     <script src="js/TireBits.js"></script>
     <script type="text/javascript" src="js/editarVehiculo.html.js"></script>
 </body>
-    
 </html>
