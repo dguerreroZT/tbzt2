@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
  <head>
   <title>Materialize</title>
@@ -10,14 +10,13 @@
   <link rel="stylesheet" type="text/css" href="css/editarVehiculo.html.css">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     
-  
  </head>
 <body>
-  
-   <nav> 
+
+   <nav>
     <div class="nav-wrapper indigo">
-      <a class="button" href="index.html"><i class="material-icons left">arrow_back</i></a>
+      <a class="button" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
+      <a id="btn" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
       <a href="#!" class="brand-logo center"> &nbsp; Vehículo</a>
       <ul class="right">
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
@@ -28,38 +27,36 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12">
-        <!--<div class="card-horizontal">-->
-          <ul class="collection">
-              
+        <div class="card-horizontal">
+          <ul class="collection z-depth-1">
+
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">local_shipping</i>
               <input id="txtNoEconomico" type="text" class="validate">
               <label for="icon_prefix">Número Económico</label>
-            </div> 
-              
+            </div>
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">crop_16_9</i>
               <input id="txtPlacas" type="text" class="validate">
               <label for="txtPlacas">Placas</label>
             </div>
-              
             <div class="input-field col s12  m6">
               <i class="material-icons prefix">label</i>
               <input type="text" id="txtMarca" class="autocomplete">
               <label  for="txtMarca">Marca</label>
             </div>
-              
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">label</i>
               <input id="txtModelo" type="text" class="autocomplete">
               <label for="txtModelo">Modelo</label>
             </div>
-              
             <div class="input-field col s12 m6">
               <i class="material-icons prefix">event</i>
               <input id="txtAño" type="text" class="validate">
               <label for="txtAño">Año</label>
             </div>
+
+
             <div class="input-field col s12 m6">  
                 <i class="material-icons prefix">event</i>
                 <a id="btnTipoVehiculo" class="waves-effect waves-light btn modal-trigger indigo" href="#modalTipoVehiculo"><i class="material-icons left">directions_car</i><span id="txtTipoVehiculo">Seleccionar Tipo</span></a>
@@ -76,10 +73,9 @@
                       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
                     </div> -->
                   </div>
-                
             </div>
             <div class="input-field col s12 m12">
-                <i class="material-icons prefix">comment</i>
+              <i class="material-icons prefix">comment</i>
               <textArea id="txtNotas" type="text" class="materialize-textarea"></textArea>
               <label for="txtNotas">Notas</label>
             </div>
@@ -88,13 +84,8 @@
       </div>
     </div>
   </div>
-      <!-- Button-->
-    <div class="fixed-action-btn horizontal">
-        <a class="btn-floating left btn-large waves-effect waves-light indigo darken-4">
-        <i class="material-icons">save</i></a>
-    </div>
 
-        <!--Import jQuery before materialize.js-->
+    <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!--script type="text/javascript" src="js/animsition.min.js"></script-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
