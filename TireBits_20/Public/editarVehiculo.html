@@ -31,46 +31,42 @@
         <div class="card-horizontal">
           <ul class="collection">
               
-            <div class="input-field col s12 m12">
-              <i class="material-icons prefix">format_list_numbered</i>
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">local_shipping</i>
               <input id="txtNoEconomico" type="text" class="validate">
               <label for="icon_prefix">Número Económico</label>
             </div> 
               
-            <div class="input-field col s12 m12">
+            <div class="input-field col s12 m6">
               <i class="material-icons prefix">crop_16_9</i>
               <input id="txtPlacas" type="text" class="validate">
               <label for="txtPlacas">Placas</label>
             </div>
               
             <div class="input-field col s12  m6">
-                <i class="material-icons prefix">format_list_numbered</i>
-              <select id="cboMarca">
-                <option value="" disabled selected>Selecciona una opcion</option>
-                <option value="1">Kenworth</option>
-                <option value="2">International</option>
-                <option value="3">Volvo</option>
-              </select>
-              <label  for="cboMarca">Marca</label>
+              <i class="material-icons prefix">label</i>
+              <input type="text" id="txtMarca" class="autocomplete">
+              <label  for="txtMarca">Marca</label>
             </div>
               
-            <div class="input-field col s12 m12">
-              <i class="material-icons prefix">directions_car</i>
-              <input id="txtModelo" type="text" class="validate">
+            <div class="input-field col s12 m6">
+              <i class="material-icons prefix">label</i>
+              <input id="txtModelo" type="text" class="autocomplete">
               <label for="txtModelo">Modelo</label>
             </div>
               
-            <div class="input-field col s12 m12">
+            <div class="input-field col s12 m6">
               <i class="material-icons prefix">event</i>
               <input id="icon_prefix" type="text" class="validate">
               <label for="icon_prefix">Año</label>
             </div>
             <div class="input-field col s12 m6">  
                 <i class="material-icons prefix">event</i>
-              <a class="waves-effect waves-light btn indigo"><i class="material-icons left">directions_car</i>Tipo</a>
+              <a class="waves-effect waves-light btn indigo"><i class="material-icons left">directions_car</i>Seleccionar Tipo</a>
             </div>
-            <div class="input-field col s12 m6">
-              <textArea id="txtNotas" type="text" class="materialize-textarea" />
+            <div class="input-field col s12 m12">
+                <i class="material-icons prefix">comment</i>
+              <textArea id="txtNotas" type="text" class="materialize-textarea"></textArea>
               <label for="txtNotas">Notas</label>
             </div>
           </ul>
