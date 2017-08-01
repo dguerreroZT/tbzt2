@@ -45,6 +45,20 @@ TireBits = new function(){
     localStorage.getItem("TireBits_Mediciones")
     localStorage.getItem("TireBits_Mediciones_idx")
     */
+    
+    this.listadoMarcasVehiculo = function(){
+        return {abcd:"Marca1", efgh:"Marca2", ijkl:"Marca3"}
+    }
+    
+    this.listadoModelosVehiculo = function(){
+        return {abcd:"Modelo1", efgh:"Modelo2", ijkl:"Modelo3"}
+    }
+    
+    
+    this.listadoTiposVehiculo = function(){
+        return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
+    }
+    
     this.Usuarios = {
         ingresar: function(usuario, nip){
             return Core.request({
@@ -123,13 +137,21 @@ TireBits = new function(){
     }
     
     this.Vehiculos = {
-        listado: function(BaseID){
+        listado: function(){
             return [
                 {NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"}
             ]
         },
-        obtener:function(UnidadID){
-            
+        obtener:function(VehiculoID){
+            return {
+                NoEconomico:"D-135",
+                Placas:"",
+                Marca:"BlackFire",
+                Modelo:"General",
+                Año:2017,
+                TipoVehiculo:"DOLLY",
+                Notas:"Vehiculo de Interflet"
+            } 
         }
     }
     
