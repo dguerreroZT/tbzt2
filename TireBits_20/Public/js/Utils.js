@@ -19,9 +19,16 @@ function spawn(generatorFunc) {
 }
 
 
+var contentLoaded = {}
+
 function loadContent(file){
+    if (contentLoaded[file]){
+        return contentLoaded[file] // Se agrega para no cargar desde archivo varias veces
+    }
+    
     return new Promise(function(fnResolve, fnReject){
         $.get(file, function(html){
+            contentLoaded[file] = html;
             fnResolve(html)
         })
     })
