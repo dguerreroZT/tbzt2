@@ -1,7 +1,9 @@
 $(function() {
-    $('select').material_select();
+    //$('select').material_select();
     
-    $("#txtNoEconomico").focus();
+    setTimeout(function(){
+        $("#txtNoEconomico").focus();
+    })
     
   });
           
