@@ -45,7 +45,7 @@ SELECT * FROM fr_Empresas ORDER BY Nombre
 SELECT * FROM tb_Bases ORDER BY Nombre
 
 
-
+SELECT * FROM db_TireBits_20170327.dbo.tiposVehiculos
 
 
 

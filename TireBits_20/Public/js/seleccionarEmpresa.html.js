@@ -28,10 +28,7 @@ $(function(){
         })
     }
     
-    
-    
-	// Check Login
-	//function Login(username, nip){
+    function cargarListado(){
 		spawn(function *(){
 			try{
 				let Empresas = yield TireBits.Usuarios.obtenerAccesoBases("Super")
@@ -56,7 +53,17 @@ $(function(){
 			}
 
 		})
-	//}
+	}
+    
+    
+    function cargarBase(EmpresaID, BaseID){
+        spawn(function *(){
+            let terminado = yield TireBits.Bases.ingresar(EmpresaID, BaseID)
+            window.location = "menu.html"
+        })
+    }
+    
+    cargarListado()
     
 	/*
     $("#btnLogin").click(function(){

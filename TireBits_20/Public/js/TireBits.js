@@ -2,12 +2,6 @@ TireBits = new function(){
     var testMode = true;
     var urlServer = testMode ? '../' : "tirebits.mx/TireBits20"
 
-    var webMethods = {
-        Login:'General.asmx/Login',
-        ObtenerAccesoBases:'Empresa.asmx/ObtenerAccesoBases',
-        ListadoVehiculos:'Vehiculos.asmx/ListadoVehiculos'
-    }
-    
     var Config = Core.getData("TireBits_Configuracion") || {}
     
     var inicializar = function(){
@@ -25,6 +19,10 @@ TireBits = new function(){
         Core.setData("TireBits_Mediciones",[])
         Core.setData("TireBits_Mediciones_idx",[])
         Core.setData("TireBits_InitInfo",{lastInit: new Date()})
+    }
+    
+    var guardarConfiguracion = function(){
+        Core.setData("TireBits_Configuracion", Config);
     }
     
     if (!Core.getData("TireBits_InitInfo")){
@@ -46,17 +44,65 @@ TireBits = new function(){
     localStorage.getItem("TireBits_Mediciones_idx")
     */
     
-    this.listadoMarcasVehiculo = function(){
-        return {abcd:"Marca1", efgh:"Marca2", ijkl:"Marca3"}
+    this.obtenerMarcasVehiculos = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerMarcasVehiculos,
+            data:{}
+        })
+        .then(function(r){
+            let marcas = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let MarcaID = row[rFields.indexOf("MarcaID")]
+                let NombreMarca = row[rFields.indexOf("NombreMarca")]
+                marcas[MarcaID] = NombreMarca
+            }
+            return marcas
+        })
+        
+        //return {abcd:"MarcaMarca1", efgh:"Marca2", ijkl:"Marca3"}
     }
     
-    this.listadoModelosVehiculo = function(){
-        return {abcd:"Modelo1", efgh:"Modelo2", ijkl:"Modelo3"}
+    this.obtenerModelosVehiculos = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerModelosVehiculos,
+            data:{}
+        })
+        .then(function(r){
+            let modelos = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let ModeloID = row[rFields.indexOf("ModeloID")]
+                let NombreModelo = row[rFields.indexOf("NombreModelo")]
+                modelos[ModeloID] = NombreModelo
+            }
+            return modelos
+        })
+        
+        //return {abcd:"Modelo1", efgh:"Modelo2", ijkl:"Modelo3"}
     }
     
     
-    this.listadoTiposVehiculo = function(){
-        return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
+    this.obtenerTiposVehiculos = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerTiposVehiculos,
+            data:{}
+        })
+        .then(function(r){
+            let tipos = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let TipoID = row[rFields.indexOf("TipoID")]
+                let NombreTipo = row[rFields.indexOf("NombreTipo")]
+                tipos[TipoID] = NombreTipo
+            }
+            return tipos
+        })
+        
+        //return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
     }
     
     this.Usuarios = {
@@ -75,7 +121,7 @@ TireBits = new function(){
                 Config.Usuario = usuario;
                 Config.Nombre  = row[rFields.indexOf("Nombre")]
                 Config.TipoUsuario = row[rFields.indexOf("TipoUsuario")]
-                Core.setData("TireBits_Configuracion", Config);
+                guardarConfiguracion()
                 return true
             })
             .catch(function (errorMessage){
@@ -109,6 +155,7 @@ TireBits = new function(){
                         ultimaEmpresa = Empresa
                     }
                     let Base = {
+                        EmpresaID: row[rFields.indexOf("EmpresaID")],
                         BaseID: row[rFields.indexOf("BaseID")],
                         NombreBase: row[rFields.indexOf("NombreBase")]
                     }
@@ -131,6 +178,11 @@ TireBits = new function(){
     }
     
     this.Bases = {
+        ingresar:function(EmpresaID, BaseID){
+            Config.EmpresaID = EmpresaID
+            Config.BaseID = BaseID
+            guardarConfiguracion()
+        },
         obtener:function(BaseID){
             
         }
@@ -143,6 +195,30 @@ TireBits = new function(){
             ]
         },
         obtener:function(VehiculoID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerVehiculo,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    BaseID: Config.BaseID,
+                    VehiculoID: VehiculoID
+                }
+            })
+            .then(function(r){
+                let vehiculo
+                if (r.RowsCount){
+                    vehiculo = {}
+                    let row = r.Result[0]
+                    let fields = r.Fields
+                    for (let field of fields){
+                        vehiculo[field] = row[fields.indexOf(field)]
+                    }
+                }
+                return vehiculo
+            })
+            .catch(function(){
+                return false  
+            })
+            /*
             return {
                 NoEconomico:"D-135",
                 Placas:"",
@@ -152,6 +228,29 @@ TireBits = new function(){
                 TipoVehiculo:"DOLLY",
                 Notas:"Vehiculo de Interflet"
             } 
+            */
+        },
+        guardar: function(vehiculo){
+            if(vehiculo.VehiculoID == ""){
+                vehiculo.VehiculoID = Core.newId(6)
+            }
+            vehiculo.EmpresaID = Config.EmpresaID
+            vehiculo.BaseID = Config.BaseID
+            vehiculo.Usuario = Config.Usuario
+            console.log(vehiculo)
+            
+            return Core.request({
+                url: urlServer + webMethods.GuardarVehiculo,
+                data: vehiculo
+            })
+            .then(function(){
+                return true
+            })
+            .catch(function(err){
+                console.log(err)
+                return false
+            })
+            
         }
     }
     

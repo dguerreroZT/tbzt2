@@ -5,10 +5,10 @@ $(function() {
     
     var TipoVehiculo = ""
     
-    
     function guardarDatos(){
         return spawn(function *(){
             let vehiculo = {
+                VehiculoID: urlParams.id || "",
                 NoEconomico:$("#txtNoEconomico").val(),
                 Placas:$("#txtPlacas").val(),
                 Marca:$("#txtMarca").val(),
@@ -27,27 +27,29 @@ $(function() {
     
     function cargarDatos(){
         return spawn(function *(){
-            let vehiculoID = ""
+            let vehiculoID = urlParams.id || ""
             let vehiculo = yield TireBits.Vehiculos.obtener(vehiculoID)
             
-            $("#txtNoEconomico").val(vehiculo.NoEconomico)
-            $("#txtPlacas").val(vehiculo.Placas)
-            $("#txtMarca").val(vehiculo.Marca)
-            $("#txtModelo").val(vehiculo.Modelo)
-            $("#txtAño").val(vehiculo.Año)
-            $("#txtNotas").val(vehiculo.Notas)
-            $("#txtTipoVehiculo").html(vehiculo.TipoVehiculo)
-            TipoVehiculo = vehiculo.TipoVehiculo
-            
-            Materialize.updateTextFields();
+            if(vehiculo){
+                $("#txtNoEconomico").val(vehiculo.NoEconomico)
+                $("#txtPlacas").val(vehiculo.Placas)
+                $("#txtMarca").val(vehiculo.Marca)
+                $("#txtModelo").val(vehiculo.Modelo)
+                $("#txtAño").val(vehiculo.Año)
+                $("#txtNotas").val(vehiculo.Notas)
+                $("#txtTipoVehiculo").html(vehiculo.TipoVehiculo)
+                TipoVehiculo = vehiculo.TipoVehiculo
+
+                Materialize.updateTextFields();
+            }
         })
     }
     
-    function cargarTiposVehiculo(){
+    function cargarTiposVehiculos(){
         return spawn(function *(){
-            let TiposVehiculo = yield TireBits.listadoTiposVehiculo()
-            for (let tipo in TiposVehiculo){
-                let TipoVehiculoDescripcion = TiposVehiculo[tipo]
+            let TiposVehiculos = yield TireBits.obtenerTiposVehiculos()
+            for (let tipo in TiposVehiculos){
+                let TipoVehiculoDescripcion = TiposVehiculos[tipo]
                 let link = $("<a>")
                 link.attr({id:tipo ,href:"#!"})
                 link.addClass("collection-item")
@@ -57,17 +59,17 @@ $(function() {
                     TipoVehiculo = TipoVehiculoDescripcion
                     $('#modalTipoVehiculo').modal('close');
                 })
-                $("#lstTiposVehiculo").append(link)
+                $("#lstTiposVehiculos").append(link)
             }
         })
     }
     
-    function cargarMarcasVehiculo(){
+    function cargarMarcasVehiculos(){
         return spawn(function *(){
-            let MarcasVehiculo = yield TireBits.listadoMarcasVehiculo() 
+            let MarcasVehiculos = yield TireBits.obtenerMarcasVehiculos() 
             let dataMarcas = {}
-            for (let marca in MarcasVehiculo){
-                let MarcaDescricpion = MarcasVehiculo[marca]
+            for (let marca in MarcasVehiculos){
+                let MarcaDescricpion = MarcasVehiculos[marca]
                 dataMarcas[MarcaDescricpion] = ""
             }
             $('#txtMarca').autocomplete({
@@ -81,12 +83,12 @@ $(function() {
         })
     }
     
-    function cargarModelosVehiculo(){
+    function cargarModelosVehiculos(){
         return spawn(function *(){
-            let ModelosVehiculo = yield TireBits.listadoModelosVehiculo() 
+            let ModelosVehiculos = yield TireBits.obtenerModelosVehiculos() 
             let dataModelos = {}
-            for (let Modelo in ModelosVehiculo){
-                let ModeloDescricpion = ModelosVehiculo[Modelo]
+            for (let Modelo in ModelosVehiculos){
+                let ModeloDescricpion = ModelosVehiculos[Modelo]
                 dataModelos[ModeloDescricpion] = ""
             }
             $('#txtModelo').autocomplete({
@@ -100,13 +102,17 @@ $(function() {
         })
     }
     
-    
-    
     function cargarListas(){
-        cargarTiposVehiculo()
-        cargarMarcasVehiculo()
-        cargarModelosVehiculo()
+        cargarTiposVehiculos()
+        cargarMarcasVehiculos()
+        cargarModelosVehiculos()
     }
+    
+    $("#btnGuardar").click(guardarDatos);
+    
+    $("#btnCancelar").click(function(){
+        window.location = "Vehiculos.html"
+    });
     
     setTimeout(function(){
         $("#txtNoEconomico").focus();
