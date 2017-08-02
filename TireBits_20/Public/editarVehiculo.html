@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
  <head>
   <title>Materialize</title>
@@ -15,8 +15,8 @@
   <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper indigo">
-      <a class="button" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
-      <a id="btn" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
+      <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
+      <a id="btnGuardar" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
       <a href="#!" class="brand-logo center"> &nbsp; Vehículo</a>
       <ul class="right">
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
@@ -54,14 +54,14 @@
               <input id="txtAño" type="text" class="validate">
               <label for="txtAño">Año</label>
             </div>
-            <div class="input-field col s12 m6">
+            <div class="input-field col s12 m6 center">  
                 <i class="material-icons prefix">event</i>
                 <a id="btnTipoVehiculo" class="waves-effect waves-light btn modal-trigger indigo" href="#modalTipoVehiculo"><i class="material-icons left">directions_car</i><span id="txtTipoVehiculo">Seleccionar Tipo</span></a>
                   <!-- Modal Structure -->
                   <div id="modalTipoVehiculo" class="modal bottom-sheet">
                     <div class="modal-content">
                       <h4>Seleccionar Tipo de Vehículo</h4>
-                      <div id="lstTiposVehiculo" class="collection">
+                      <div id="lstTiposVehiculos" class="collection">
                       </div>
                     </div>
                     <!-- <div class="modal-footer">
@@ -85,6 +85,7 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="js/Utils.js"></script>
     <script src="js/Core.js"></script>
+    <script src="js/WebMethods.js"></script>
     <script src="js/TireBits.js"></script>
     <script type="text/javascript" src="js/editarVehiculo.html.js"></script>
 </body>

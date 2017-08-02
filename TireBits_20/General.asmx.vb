@@ -72,6 +72,39 @@ Public Class General
 
     End Function
 
+    <WebMethod()>
+    Public Function ObtenerMarcasVehiculos() As Response
+        Dim con As New SqlConnection(strCon)
+
+        Dim cmd As SqlCommand = New SqlCommand("spCa_ObtenerMarcasVehiculos", con)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Return getData(con, cmd)
+
+    End Function
+
+    <WebMethod()>
+    Public Function ObtenerModelosVehiculos() As Response
+        Dim con As New SqlConnection(strCon)
+
+        Dim cmd As SqlCommand = New SqlCommand("spCa_ObtenerModelosVehiculos", con)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Return getData(con, cmd)
+
+    End Function
+
+    <WebMethod()>
+    Public Function ObtenerTiposVehiculos() As Response
+        Dim con As New SqlConnection(strCon)
+
+        Dim cmd As SqlCommand = New SqlCommand("spCa_ObtenerTiposVehiculos", con)
+        cmd.CommandType = CommandType.StoredProcedure
+
+        Return getData(con, cmd)
+
+    End Function
+
 
 End Class
 

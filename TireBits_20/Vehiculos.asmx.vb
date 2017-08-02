@@ -31,7 +31,7 @@ Public Class Vehiculos
     End Function
 
     <WebMethod()>
-    Public Function Guardar(EmpresaID$, BaseID$, VehiculoID$, NoEconomico$, Placas$, Marca$, Modelo$, Año$, TipoVehiculo$, Notas$) As Response
+    Public Function Guardar(EmpresaID$, BaseID$, VehiculoID$, NoEconomico$, Placas$, Marca$, Modelo$, Año$, TipoVehiculo$, Notas$, Usuario$) As Response
         Dim con As New SqlConnection(strCon)
 
         Dim cmd As SqlCommand = New SqlCommand("spTb_GuardarVehiculo", con)
@@ -46,6 +46,21 @@ Public Class Vehiculos
         cmd.Parameters.Add("@Año", SqlDbType.VarChar).Value = Año
         cmd.Parameters.Add("@TipoVehiculo", SqlDbType.VarChar).Value = TipoVehiculo
         cmd.Parameters.Add("@Notas", SqlDbType.VarChar).Value = Notas
+        cmd.Parameters.Add("@Usuario", SqlDbType.VarChar).Value = Usuario
+
+        Return getData(con, cmd)
+
+    End Function
+
+    <WebMethod()>
+    Public Function Obtener(EmpresaID$, BaseID$, VehiculoID$) As Response
+        Dim con As New SqlConnection(strCon)
+
+        Dim cmd As SqlCommand = New SqlCommand("spTb_ObtenerVehiculo", con)
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.Parameters.Add("@EmpresaID", SqlDbType.VarChar).Value = EmpresaID
+        cmd.Parameters.Add("@BaseID", SqlDbType.VarChar).Value = BaseID
+        cmd.Parameters.Add("@VehiculoID", SqlDbType.VarChar).Value = VehiculoID
 
         Return getData(con, cmd)
 
