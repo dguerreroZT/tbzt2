@@ -26,6 +26,7 @@
      color: #3f51b5;
    }
 
+   /*----Propidades TextArea----*/
    .input-field textarea[class=materialize-textarea]:focus + label {
      color: #3f51b5;
    }
@@ -33,4 +34,20 @@
    .input-field textarea[class=materialize-textarea]:focus {
       border-bottom: 1px solid #3f51b5;
       box-shadow: 0 1px 0 0 #3f51b5;
-}
+    }
+
+    /*----Propiedades Collection-Modal----*/
+    .collection a.collection-item {
+      display: block;
+      transition: .25s;
+      color: #000;
+    }
+
+    /*----Propiedades autocomplete----*/
+    /* label focus color */
+    .dropdown-content label{
+      color: #000;
+    }
+    .autocomplete-content label{
+      color: #000;
+    }
