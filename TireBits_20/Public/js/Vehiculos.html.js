@@ -1,8 +1,7 @@
 ﻿$(function(){
 	//$('.animsition').animsition();
     
-	// Check Login
-	//function Login(username, nip){
+	function cargarListado(){
 		spawn(function *(){
 			try{
 				let Vehiculos = yield TireBits.Vehiculos.listado("abcd")
@@ -11,10 +10,11 @@
                     let finished = yield agregarElementoListado({
                         div:"lstVehiculos",
                         data:{
+                            idElement: Vehiculo.VehiculoID,
                             Icon:"local_shipping",
                             Titulo: "Número Económico: " + Vehiculo.NoEconomico,
-                            Subtitulo1: "Marca: " + Vehiculo.Marca + "; Modelo: " + Vehiculo.Modelo,
-                            Subtitulo2: "Placas:" + Vehiculo.Placas
+                            Subtitulo1: Vehiculo.Marca + "; " + Vehiculo.Modelo,
+                            Subtitulo2: "<b>Placas: </b>" + Vehiculo.Placas
                         }
                     })
                 }
@@ -24,12 +24,16 @@
 			}
 
 		})
-	//}
+	}
     
-
+    clickElement = function(VehiculoID){
+        window.location = "editarVehiculo.html?id=" + VehiculoID
+    }
+    
     $("#btnAdd").click(function(){
 		window.location = "editarVehiculo.html"
 	})
-
+    
+    cargarListado()
 
 })

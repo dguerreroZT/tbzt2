@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+  <title>Materialize</title>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ </head>
+<body>
+
+    <nav class="nav-extended">
+      <div class="nav-wrapper indigo">
+        <a class="button" href="index.html"><i class="material-icons left">arrow_back</i></a>
+        <a href="#!" class="brand-logo center"> &nbsp; Llantas</a>
+        <ul class="right">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+        </ul>
+      </div>
+      <div class="nav-content indigo darken-1">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a href="#test1">Todas</a></li>
+        <li class="tab"><a href="#test2">Dañadas</a></li>
+        <li class="tab"><a href="#test3">Desmontadas</a></li>
+        <li class="tab"><a href="#test4">Desecho</a></li>
+      </ul>
+      </div>
+    </nav>
+    <div id="test1" class="col s12">Todas 
+     <div class="container">
+        <div class="row">
+          <div class="col s12 m12">
+            <nav>
+              <div class="nav-wrapper">
+                <form>
+                  <div class="input-field white">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons black-text">search</i></label>
+                    <i class="material-icons">close</i>
+                  </div>
+                </form>
+              </div>
+            </nav><br>
+            <div class="card-horizontal">
+              <ul class="collection">
+                <table class="striped" id="tblLlantas">
+                  <thead>
+                    <tr id="headerLlantas">
+                      <th>Llanta</th>
+                      <th>Marca</th>
+                      <th>PSI</th>
+                      <th>MM</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbLlantas">
+                    <a href="#!">
+                        <tr>
+                          <td>TCM09</td>
+                          <td>Michelin</td>
+                          <td>105</td>
+                          <td>12</td>
+                        </tr>
+                        <tr>
+                          <td>TCM09</td>
+                          <td>Michelin</td>
+                          <td>105</td>
+                          <td>12</td>
+                        </tr>
+                    </a>
+                  </tbody>
+                </table>
+              </ul>   
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Button-->
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating left btn-large waves-effect waves-light indigo darken-4">
+        <i class="material-icons">add</i></a>
+    </div>
+    
+    </div>
+    <div id="test2" class="col s12">Dañadas </div>
+    <div id="test3" class="col s12">Desmontadas </div>
+    <div id="test4" class="col s12">Desecho </div>
+    
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!--script type="text/javascript" src="js/animsition.min.js"></script-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/Utils.js"></script>
+    <script src="js/Core.js"></script>
+    <script src="js/WebMethods.js"></script>
+    <script src="js/TireBits.js"></script>
+    
+</body>
+</html>
