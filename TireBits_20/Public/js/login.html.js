@@ -1,6 +1,6 @@
 $(function(){
 	$('.animsition').animsition();
-	 $('#modal1').modal();
+	 $('#msgError').modal();
 
 
 	// Check Login
@@ -12,7 +12,7 @@ $(function(){
 					//alert("Login Correcto!!!!")
 					window.location="seleccionarEmpresa.html";
 				}else{
-					 $('#modal1').modal('open');
+					 $('#msgError').modal('open');
 				}
 			}catch(err){
 				console.log(err)
@@ -21,10 +21,10 @@ $(function(){
 		})
 	}
 
-	//$("#btnLogin").click(function(){
-	//	var username = $("#txtUsuario").val();
-	//	var nip = $("#txtNip").val();
-	//	Login(username, nip)
-	//})
+	$("#btnLogin").click(function(){
+		var username = $("#txtUsuario").val();
+		var nip = $("#txtNip").val();
+		Login(username, nip)
+	})
 
 })
