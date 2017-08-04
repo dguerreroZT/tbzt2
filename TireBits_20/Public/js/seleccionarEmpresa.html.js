@@ -56,10 +56,10 @@ $(function(){
 	}
     
     
-    function cargarBase(EmpresaID, BaseID){
+    cargarBase = function(EmpresaID, BaseID){
         spawn(function *(){
             let terminado = yield TireBits.Bases.ingresar(EmpresaID, BaseID)
-            window.location = "menu.html"
+            window.location = "menu2.html"
         })
     }
     
