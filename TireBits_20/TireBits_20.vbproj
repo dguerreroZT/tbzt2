@@ -78,12 +78,17 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Llantas.asmx" />
     <Content Include="Vehiculos.asmx" />
     <Content Include="Empresa.asmx" />
     <Content Include="General.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Llantas.asmx.vb">
+      <DependentUpon>Llantas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vehiculos.asmx.vb">
       <DependentUpon>Vehiculos.asmx</DependentUpon>
       <SubType>Component</SubType>

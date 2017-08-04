@@ -307,11 +307,40 @@ TireBits = new function(){
         },
         
         listado:function(){
-            
+            return Core.request({
+                url: urlServer + webMethods.ListadoLlantas,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    BaseID: Config.BaseID
+                }
+            })
+            .then(function(r){
+                var Llantas = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Llanta = {}
+                        for(let field of fields){
+                            Llanta[field] = row[fields.indexOf(field)]
+                        }
+                        Llantas.push(Llanta)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return Llantas
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
             return [
                 {LlantaID: "abcdef", NoEconomico: "10121 IFR", Marca:"Michelin", Modelo: "XZE2", Presion: "100", Profundidad: "12", Ubicacion: "Montada", Lugar: "def"},
                 {LlantaID: "ghijkl", NoEconomico: "10190 IFR", Marca:"BlackFire", Modelo: "XZE3", Presion: "95", Profundidad: "12", Ubicacion: "Base"}
             ]
+            */
             
         },
         
