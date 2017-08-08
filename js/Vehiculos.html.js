@@ -1,5 +1,5 @@
 ﻿$(function(){
-	//$('.animsition').animsition();
+	$('.animsition').animsition();
     
 	function cargarListado(){
 		spawn(function *(){

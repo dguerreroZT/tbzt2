@@ -1,5 +1,5 @@
 ﻿$(function(){
-	//$('.animsition').animsition();
+	$('.animsition').animsition();
     var ListadoLlantas = []
     
     function buscar(str, limit){
@@ -83,11 +83,6 @@
         $("#Buscar").focus();        
     })
 
-    $("#cerrarBusqueda").click(function(){
-        $("#navBuscar").css({display:"none"})
-        $("#Buscar").val("");        
-    })
-    
     cargarListado()
     
     
