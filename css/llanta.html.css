@@ -7,7 +7,7 @@ div .containerImg{
 
 .containerDatos{
 	float: right;
-	margin-right: 20%;
+	margin-right: 3	0%;
 
 }
 
@@ -19,6 +19,7 @@ img{
 h3{
 	margin-left: 200px;
 }
+
 h4{
 	text-align: center;
 }
@@ -26,3 +27,4 @@ h4{
 h5{
 	text-align: left;
 }
+

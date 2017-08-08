@@ -1,5 +1,6 @@
 ﻿$(function(){
 	//$('.animsition').animsition();
+     $('.parallax').parallax();
     var ListadoLlantasMediciones = []
     
     function agregarFila(Medicion){
