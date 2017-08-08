@@ -5,7 +5,7 @@ function agregarElementoListado(config){
             let sVal = new RegExp("{{" + property + "}}", "g")
             html = html.replace(sVal, config.data[property]);
         }
-        let idIcon = Core.newId(4);
+        let idIcon = Core.newId(8);
         let idImage = Core.newId(4);
         
         

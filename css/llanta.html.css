@@ -1,0 +1,28 @@
+div .containerImg{
+	float: left;
+    padding-left: 30%;
+    padding-top: 20px;
+
+}
+
+.containerDatos{
+	float: right;
+	margin-right: 20%;
+
+}
+
+img{
+    width: 150px;
+	height: 150px;
+}
+
+h3{
+	margin-left: 200px;
+}
+h4{
+	text-align: center;
+}
+
+h5{
+	text-align: center;
+}
