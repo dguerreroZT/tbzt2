@@ -297,12 +297,38 @@ TireBits = new function(){
         ],
         
         obtener:function(LlantaID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerLlanta,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    LlantaID: LlantaID
+                }
+            })
+            .then(function(r){
+                let llanta
+                if (r.RowsCount){
+                    llanta = {}
+                    let row = r.Result[0]
+                    let fields = r.Fields
+                    for (let field of fields){
+                        llanta[field] = row[fields.indexOf(field)]
+                    }
+                }
+                return llanta
+            })
+            .catch(function(err){
+                console.log(err)
+                return false  
+            })
+            
+            /*
             var dataLlantas = Core.getData(this.tbName)
             for (i in dataLlantas){
                 var ll = dataLlantas[i]
                 if(ll.LlantaID == LlantaID)
                     return ll;
             }
+            */
             //return {data:arrayLlantas, index:indexLlantas}
         },
         
@@ -330,6 +356,44 @@ TireBits = new function(){
                     console.log(r.Message)
                 }
                 return Llantas
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {LlantaID: "abcdef", NoEconomico: "10121 IFR", Marca:"Michelin", Modelo: "XZE2", Presion: "100", Profundidad: "12", Ubicacion: "Montada", Lugar: "def"},
+                {LlantaID: "ghijkl", NoEconomico: "10190 IFR", Marca:"BlackFire", Modelo: "XZE3", Presion: "95", Profundidad: "12", Ubicacion: "Base"}
+            ]
+            */
+            
+        },
+        
+        listadoMediciones:function(LlantaID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerMedicionesLlanta,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    LlantaID: LlantaID
+                }
+            })
+            .then(function(r){
+                var MedicionesLlantas = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Medicion = {}
+                        for(let field of fields){
+                            Medicion[field] = row[fields.indexOf(field)]
+                        }
+                        MedicionesLlantas.push(Medicion)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return MedicionesLlantas
             })
             .catch(function(msg){
                 console.log(msg)
