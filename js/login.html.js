@@ -25,6 +25,5 @@ $(function(){
 		var username = $("#txtUsuario").val();
 		var nip = $("#txtNip").val();
 		Login(username, nip)
-	})
-
+	})	
 })

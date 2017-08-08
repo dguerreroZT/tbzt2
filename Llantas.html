@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
  <head>
-  <title>Materialize</title>
+  <title>TireBits</title>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-
+  <link rel="stylesheet" href="css/animsition.min.css">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  </head>
@@ -51,6 +51,13 @@
         <div class="row">
           <div class="col s12 m12">
       <br><br><br>
+      <div
+        class="animsition"
+        data-animsition-in-class="fade-in-right"
+        data-animsition-in-duration="1000"
+        data-animsition-out-class="fade-out-left"
+        data-animsition-out-duration="400">
+
             <div class="card-horizontal">
               <ul class="collection">
                 <table class="striped" id="tblLlantas">
@@ -72,6 +79,7 @@
           </div>
         </div>
       </div>
+    </div>
       <!-- Button-->
     <div class="fixed-action-btn horizontal">
         <a class="btn-floating left btn-large waves-effect waves-light">
@@ -87,6 +95,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!--script type="text/javascript" src="js/animsition.min.js"></script-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/animsition.min.js"></script>
     <script src="js/Utils.js"></script>
     <script src="js/Core.js"></script>
     <script src="js/WebMethods.js"></script>

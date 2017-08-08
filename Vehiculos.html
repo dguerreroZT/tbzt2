@@ -1,17 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
  <head>
-    <title>Materialize</title>
+    <title>TireBits</title>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-
+    <link rel="stylesheet" href="css/animsition.min.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
+
 
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="#!">Reporte</a></li>
@@ -58,7 +59,12 @@
       </div>
       </div>
     -->
-    
+     <div
+        class="animsition"
+        data-animsition-in-class="fade-in-right"
+        data-animsition-in-duration="1000"
+        data-animsition-out-class="fade-out-left"
+        data-animsition-out-duration="400">
     <!--Card del listado-->
       <div class="container">
        <div class="row">
@@ -72,6 +78,7 @@
        </div>
       </div>
     </div>
+  </div>
  
           
 
@@ -83,6 +90,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <!--script type="text/javascript" src="js/animsition.min.js"></script-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/animsition.min.js"></script>
     <script src="js/Utils.js"></script>
     <script src="js/Core.js"></script>
     <script src="js/WebMethods.js"></script>
