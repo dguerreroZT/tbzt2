@@ -11,40 +11,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
  </head>
 <body>
-
-    <nav class="nav-extended">
-      <div class="nav-wrapper">
-        <a class="button" href="javascript:history.back()"><i class="material-icons left">arrow_back</i></a>
-        <a href="#!" class="brand-logo">Llantas</a>
-        <ul class="right">
-          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+    <div class="navbar-fixed">
+     <nav class="nav-extended">
+        <div class="nav-wrapper">
+         <div> 
+          <span class="brand-logo left">
+          <a class="button" href="javascript:history.back()"><i class=" material-icons left">arrow_back</i></a>Llantas</span>
+          </div>
+          <ul class="right">
+            <li><a id="btnSearch" class="dropdown-button" href="#!" data-activates="dropdown1"> <i  class="material-icons right">search</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i  class="material-icons right">more_vert</i></a></li>
+          </ul>
+        </div>  
+  
+        <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a href="#test1">Todas</a></li>
+          <li class="tab"><a href="#test2">Dañadas</a></li>
+          <li class="tab"><a href="#test3">Desmontadas</a></li>
+          <li class="tab"><a href="#test4">Desecho</a></li>
         </ul>
-      </div>
+        </div>
+      </nav>
 
-
-      <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1">Todas</a></li>
-        <li class="tab"><a href="#test2">Dañadas</a></li>
-        <li class="tab"><a href="#test3">Desmontadas</a></li>
-        <li class="tab"><a href="#test4">Desecho</a></li>
-      </ul>
-      </div>
-    </nav>
+            <nav id="navBuscar" style="display: none;">
+              <div class="nav-wrapper">
+              <form class="center">
+                  <div class="input-field">
+                    <input id="Buscar" type="search" required>
+                    <label class="label-icon" for="Buscar"> <a id="cerrarBusqueda" href="#"><i class="material-icons">close</i></a></label>                    
+                  </div>
+                </form>
+              </div>
+            </nav>
+    </div>
     <div id="test1" class="col s12">Todas 
      <div class="container">
         <div class="row">
           <div class="col s12 m12">
-            <nav>
-              <div class="nav-wrapper">
-                <form>
-                  <div class="input-field">
-                    <input id="Buscar" type="search" required>
-                    <label class="label-icon" for="Buscar"><i class="material-icons">search</i></label>
-                  </div>
-                </form>
-              </div>
-            </nav><br>
+              <br><br><br>
             <div class="card-horizontal">
               <ul class="collection">
                 <table class="striped" id="tblLlantas">
@@ -57,7 +62,7 @@
                     </tr>
                   </thead>
                   <tbody id="tbLlantas">
-                    <a href="#!">
+                    <a href="#!"> 
                     </a>
                   </tbody>
                 </table>
@@ -85,6 +90,7 @@
     <script src="js/Core.js"></script>
     <script src="js/WebMethods.js"></script>
     <script src="js/TireBits.js"></script>
-    <script src="js/Llantas.html.js"></script>    
+    <script src="js/Llantas.html.js"></script>
+    
 </body>
 </html>

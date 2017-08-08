@@ -77,6 +77,16 @@
         //if(fnBuscar){clearTimeout(fnBuscar)}
         //fnBuscar = setTimeout(buscarCompleto,1000)
     })
+
+    $("#btnSearch").click(function(){
+        $("#navBuscar").css({display:"block"})
+        $("#Buscar").focus();        
+    })
+
+    $("#cerrarBusqueda").click(function(){
+        $("#navBuscar").css({display:"none"})
+        $("#Buscar").val("");        
+    })
     
     cargarListado()
     
