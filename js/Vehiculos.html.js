@@ -33,6 +33,17 @@
     $("#btnAdd").click(function(){
 		window.location = "editarVehiculo.html"
 	})
+
+    $("#btnSearch").click(function(){
+        $("#navBuscar").css({display:"block"})
+        $("#Buscar").focus();        
+    })
+
+    $("#cerrarBusqueda").click(function(){
+        $("#navBuscar").css({display:"none"})
+        $("#Buscar").val("");        
+    })
+    
     
     cargarListado()
 
