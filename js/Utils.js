@@ -35,6 +35,19 @@ function loadContent(file){
     })
 }
 
+function getDateValue(d){
+    let regex = /\/Date\(([0-9]+)\)\//g
+    var rgxResult = regex.exec(d)
+    if (rgxResult){
+        d = new Date(Number(rgxResult[1]))
+        
+        let monthNames = ['Ene','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
+        
+        return (d.getDate() + '/' + monthNames[d.getMonth()] + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds())
+    }
+    return d
+}
+
 var urlParams;
 $(function() { 
     var match,

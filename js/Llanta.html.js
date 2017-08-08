@@ -1,21 +1,19 @@
 ﻿$(function(){
 	//$('.animsition').animsition();
-    var ListadoLlantas = []
+    var ListadoLlantasMediciones = []
     
-    function agregarFila(Llanta){
+    function agregarFila(Medicion){
         let row = $("<tr>")
-        let col_NoEconomico  = $("<td>").html(Llanta.NoEconomico); 
-        let col_Marca  = $("<td>").html(Llanta.Marca); 
-        let col_Presion  = $("<td>").html(Llanta.Presion); 
-        let col_Profundidad  = $("<td>").html(Llanta.Profundidad); 
+        let col_Fecha  = $("<td>").html(getDateValue(Medicion.Fecha)); 
+        let col_Presion  = $("<td>").html(Medicion.Presion); 
+        let col_Profundidad  = $("<td>").html(Medicion.Profundidad); 
         
         
-        row.append(col_NoEconomico)
-        row.append(col_Marca)
+        row.append(col_Fecha)
         row.append(col_Presion)
         row.append(col_Profundidad)
         
-        $("#tbLlantas").append(row)
+        $("#tbMediciones").append(row)
         
         return true
     }
@@ -24,10 +22,11 @@
 	function cargarListadoMediciones(){
 		spawn(function *(){
 			try{
-				let Llantas = yield TireBits.Llantas.listado()
-                ListadoLlantas = Llantas
-                for (let Llanta of Llantas){
-                    let finished = yield agregarFila(Llanta)
+                let llantaID = urlParams.id || ""
+				let Mediciones = yield TireBits.Llantas.listadoMediciones(llantaID)
+                ListadoLlantasMediciones = Mediciones
+                for (let Medicion of ListadoLlantasMediciones){
+                    let finished = yield agregarFila(Medicion)
                 }
                 
 			}catch(err){
@@ -41,13 +40,13 @@
         return spawn(function *(){
             let llantaID = urlParams.id || ""
             let llanta = yield TireBits.Llantas.obtener(llantaID)
-            
+            console.log(llanta)
             if(llanta){
                 $("#txtNoEconomico").html(llanta.NoEconomico)
                 $("#txtMarca").html(llanta.Marca)
                 $("#txtModelo").html(llanta.Modelo)
                 $("#txtMedida").html(llanta.Medida)
-                $("#txtUltimaMedicion").html(llanta.UltimaMedicion)
+                $("#txtFechaUltimaMedicion").html(getDateValue(llanta.FechaUltimaMedicion))
                 $("#txtPresion").html(llanta.Presion)
                 $("#txtProfundidad").html(llanta.Profundidad)
                 

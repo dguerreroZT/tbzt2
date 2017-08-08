@@ -26,6 +26,7 @@ Core = new function(){
 
     this.request = function(config){
         return new Promise(function(fnResolve, fnReject){
+            console.log(config)
           $.ajax({
             url: config.url,
             type: "POST",
