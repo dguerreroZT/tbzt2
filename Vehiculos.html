@@ -19,17 +19,30 @@
     </ul>
 
   <!--Nav-->
-  <div class="navbar-fixed">
-    <nav> 
+    <div class="navbar-fixed">
+      <nav class="nav-extended">
         <div class="nav-wrapper">
-          <a class="button" href="javascript:history.back()"><i class="material-icons left">arrow_back</i></a>
-          <a href="#!" class="brand-logo center"> Vehículos</a>
+          <div> 
+            <span class="brand-logo left">
+            <a class="button" href="javascript:history.back()"><i class=" material-icons left">arrow_back</i></a>Vehiculos</span>
+          </div>
           <ul class="right">
-             <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+            <li><a id="btnSearch" class="dropdown-button" href="#!" data-activates="dropdown"> <i  class="material-icons right">search</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i  class="material-icons right">more_vert</i></a></li>
           </ul>
+        </div>  
+      </nav>
+      <nav id="navBuscar" style="display: none;">
+        <div class="nav-wrapper">
+          <form class="center">
+            <div class="input-field">
+              <input id="Buscar" type="search" required>
+              <label class="label-icon" for="Buscar"> <a id="cerrarBusqueda" href="#"><i class="material-icons">close</i></a></label>                    
+            </div>
+          </form>
         </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
 
   <!-- Parallax -->  
   <!-- 
