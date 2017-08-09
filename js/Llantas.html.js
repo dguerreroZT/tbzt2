@@ -78,6 +78,11 @@
         //fnBuscar = setTimeout(buscarCompleto,1000)
     })
 
+    $("#cerrarBusqueda").click(function(){		
+         $("#navBuscar").css({display:"none"})		
+         $("#Buscar").val("");        		
+     })
+    
     $("#btnSearch").click(function(){
         $("#navBuscar").css({display:"block"})
         $("#Buscar").focus();        
