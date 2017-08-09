@@ -13,19 +13,33 @@
 
  </head>
 <body>
-   <nav> 
-    <div class="nav-wrapper indigo">
-      <a class="button" href="index.html"><i class="material-icons left">arrow_back</i></a>
-      <a href="#!" class="brand-logo">Llantas</a>
-      <ul class="right">
-         <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
-      </ul>
+    <div class="navbar-fixed">
+       <nav> 
+        <div class="nav-wrapper">
+          <a class="button" href="Llantas.html"><i class="material-icons left">arrow_back</i></a>
+          <a href="#!" class="brand-logo">Llanta</a>
+          <ul class="right">
+             <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+          </ul>
+        </div>
+           
+       </nav>
     </div>
-   </nav>
-
     <div class="parallax-container">
-      <div class="parallax"><img src="img/llanta2.jpg"></div>
+        <div class="container">
+        <div class="containerDatos white-text">
+            <h4><strong><span id="txtNoEconomico"></span></strong></h4>
+            <h5><strong>Marca: </strong><span id="txtMarca"></span></h5>
+            <h5><strong>Modelo: </strong><span id="txtModelo"></span></h5>
+            <h5><strong>Medida: </strong><span id="txtMedida"></span></h5>
+            <h5><strong>Última Medición: </strong><span id="txtFechaUltimaMedicion"></span></h5>
+            <h5><strong>Presión: </strong><span id="txtPresion"></span> PSI</h5>
+            <h5><strong>Profundidad: </strong><span id="txtProfundidad"></span> mm</h5>
+          </div>     
+        </div>
+      <div class="parallax"><img src="img/curves.jpg"></div>
     </div>
+
 
    <div class="container">
     <div class="row">
@@ -34,15 +48,7 @@
           <!--<div class="containerImg">
             <img src="img/icons/wheel-icon.png">
           </div>-->
-          <div class="containerDatos">
-            <h5><strong>No. Económico:<span id="txtNoEconomico"></span></strong></h5>
-            <h5><strong>Marca: </strong><span id="txtMarca"></span></h5>
-            <h5><strong>Modelo: </strong><span id="txtModelo"></span></h5>
-            <h5><strong>Medida: </strong><span id="txtMedida"></span></h5>
-            <h5><strong>Última Medición: </strong><span id="txtFechaUltimaMedicion"></span></h5>
-            <h5><strong>Presión: </strong><span id="txtPresion"></span> PSI</h5>
-            <h5><strong>Profundidad: </strong><span id="txtProfundidad"></span> mm</h5>
-          </div>             
+                  
         </div>
       </div>
     </div>
@@ -70,7 +76,9 @@
       </div>
     </div>
   </div>
-    
+    <div class="fixed-action-btn horizontal">
+        <a id="btnAdd" class="btn-floating left btn-large waves-effect waves-light"><i class="material-icons">edit</i></a>
+    </div>
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
