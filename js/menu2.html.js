@@ -6,4 +6,7 @@ $(document).ready(function() {
 	$("#btnLlantas").click(function(){
 		window.location = "Llantas.html"
 	});
+    $("#btnBases").click(function(){
+		window.location = "Bases.html"
+	});
 });

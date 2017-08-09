@@ -1,6 +1,7 @@
 webMethods = {
         Login:'General.asmx/Login',
         ObtenerAccesoBases:'Empresa.asmx/ObtenerAccesoBases',
+        ListadoBases:'Bases.asmx/Listado',
         ListadoVehiculos:'Vehiculos.asmx/Listado',
         ListadoLlantas:'Llantas.asmx/Listado',
         ObtenerLlanta:'Llantas.asmx/Obtener',

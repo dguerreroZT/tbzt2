@@ -42,6 +42,10 @@
         row.append(col_Profundidad)
         
         $("#tbLlantas").append(row)
+        row.css({cursor:"pointer"})
+        row.click(function(){
+            window.location = "Llanta.html?id=" + Llanta.LlantaID
+        })
         
         return true
     }
@@ -63,6 +67,10 @@
 		})
 	}
     
+    function cerrarBusqueda(){		
+         $("#navBuscar").css({display:"none"})		
+         $("#Buscar").val("");
+     }
     
     //function buscarCompleto(){
     //    let str = $("#Buscar").val()
@@ -78,10 +86,19 @@
         //fnBuscar = setTimeout(buscarCompleto,1000)
     })
 
-    $("#cerrarBusqueda").click(function(){		
-         $("#navBuscar").css({display:"none"})		
-         $("#Buscar").val("");        		
-     })
+    $("#Buscar").focusout(function(){
+        let str = $("#Buscar").val()
+        if (str == ""){
+            cerrarBusqueda()
+        }
+        //if(fnBuscar){clearTimeout(fnBuscar)}
+        //fnBuscar = setTimeout(buscarCompleto,1000)
+    })
+    
+    $("#cerrarBusqueda").click(function(){
+        cerrarBusqueda()
+        buscar("")
+    })
     
     $("#btnSearch").click(function(){
         $("#navBuscar").css({display:"block"})

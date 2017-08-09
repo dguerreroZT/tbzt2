@@ -185,6 +185,42 @@ TireBits = new function(){
         },
         obtener:function(BaseID){
             
+        },
+        listado: function(){
+            return Core.request({
+                url: urlServer + webMethods.ListadoBases,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    Usuario: Config.Usuario
+                }
+            })
+            .then(function(r){
+                var Bases = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Base = {}
+                        for(let field of fields){
+                            Base[field] = row[fields.indexOf(field)]
+                        }
+                        Bases.push(Base)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return Bases
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {VehiculoID: "abcdef", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"},
+                {VehiculoID: "ghijkl", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"}
+            ]
+            */
         }
     }
     

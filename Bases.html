@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+    <title>TireBits</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="css/animsition.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">Reporte</a></li>
+    </ul>
+
+  <!--Nav-->
+    <div class="navbar-fixed">
+      <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <div> 
+            <span class="brand-logo left">
+            <a class="button" href="javascript:history.back()"><i class=" material-icons left">arrow_back</i></a>Bases</span>
+          </div>
+          <ul class="right">
+            <li><a id="btnSearch" class="dropdown-button" href="#!" data-activates="dropdown"> <i  class="material-icons right">search</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i  class="material-icons right">more_vert</i></a></li>
+          </ul>
+        </div>  
+      </nav>
+      <nav id="navBuscar" style="display: none;">
+        <div class="nav-wrapper">
+          <form class="center">
+            <div class="input-field">
+              <input id="Buscar" type="search" required>
+              <label class="label-icon" for="Buscar"> <a id="cerrarBusqueda" href="#"><i class="material-icons">close</i></a></label>                    
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
+  <!-- Parallax -->  
+  <!-- 
+      <div class="parallax-container">
+      <div class="parallax">
+        <img src="img/car-tire-cut.png">
+      </div>
+      </div> 
+      <div class="section white">
+      <div class="row container">
+          <h4 class="header"><span id="txtEmpresa">Transportaciones Industriales Gume</h4></span>
+          <h5 class="grey-text text-darken-3 lighten-3"><span id="txtBase">Base: Gume Altamira.</h5></span>
+      </div>
+      </div>
+    -->
+     <div
+        class="animsition"
+        data-animsition-in-class="fade-in-right"
+        data-animsition-in-duration="400"
+        data-animsition-out-class="fade-out-left"
+        data-animsition-out-duration="400">
+    <!--Card del listado-->
+      <div class="container">
+       <div class="row">
+        <div class="col s12 m12">
+         <div class="card-horizontal">
+          <ul class="collection" id="lstBases">
+              <!-- Aqui van los elementos del listado -->
+       
+          </ul>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+ 
+          
+
+    <!-- Button-->
+    <div class="fixed-action-btn horizontal">
+        <a id="btnAdd" class="btn-floating left btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!--script type="text/javascript" src="js/animsition.min.js"></script-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/animsition.min.js"></script>
+    <script src="js/Utils.js"></script>
+    <script src="js/Core.js"></script>
+    <script src="js/WebMethods.js"></script>
+    <script src="js/TireBits.js"></script>
+    <script type="text/javascript" src="js/Bases.html.js"></script>
+    <script type="text/javascript" src="js/ElementoLista.html.js"></script>
+    
+    <script>   
+
+      $(".button-collapse").sideNav();
+       $(document).ready(function(){
+      $('.parallax').parallax();
+    });
+
+    </script>
+    <style type="text/css">
+
+       .parallax-container {
+          max-height: 200px;       
+
+      } 
+    </style>
+</body>
+</html>
