@@ -185,6 +185,42 @@ TireBits = new function(){
         },
         obtener:function(BaseID){
             
+        },
+        listado: function(){
+            return Core.request({
+                url: urlServer + webMethods.ListadoBases,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    Usuario: Config.Usuario
+                }
+            })
+            .then(function(r){
+                var Bases = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Base = {}
+                        for(let field of fields){
+                            Base[field] = row[fields.indexOf(field)]
+                        }
+                        Bases.push(Base)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return Bases
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {VehiculoID: "abcdef", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"},
+                {VehiculoID: "ghijkl", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"}
+            ]
+            */
         }
     }
     
@@ -225,6 +261,45 @@ TireBits = new function(){
             ]
             */
         },
+        
+        listadoMediciones:function(VehiculoID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerMedicionesVehiculo,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    VehiculoID: VehiculoID
+                }
+            })
+            .then(function(r){
+                var MedicionesVehiculos = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Medicion = {}
+                        for(let field of fields){
+                            Medicion[field] = row[fields.indexOf(field)]
+                        }
+                        MedicionesVehiculos.push(Medicion)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return MedicionesVehiculos
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {LlantaID: "abcdef", NoEconomico: "10121 IFR", Marca:"Michelin", Modelo: "XZE2", Presion: "100", Profundidad: "12", Ubicacion: "Montada", Lugar: "def"},
+                {LlantaID: "ghijkl", NoEconomico: "10190 IFR", Marca:"BlackFire", Modelo: "XZE3", Presion: "95", Profundidad: "12", Ubicacion: "Base"}
+            ]
+            */
+            
+        },
+        
         obtener:function(VehiculoID){
             return Core.request({
                 url: urlServer + webMethods.ObtenerVehiculo,

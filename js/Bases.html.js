@@ -4,17 +4,17 @@
 	function cargarListado(){
 		spawn(function *(){
 			try{
-				let Vehiculos = yield TireBits.Vehiculos.listado("abcd")
-
-                for (let Vehiculo of Vehiculos){
+				let Bases = yield TireBits.Bases.listado()
+                console.log(Bases)
+                for (let Base of Bases){
                     let finished = yield agregarElementoListado({
-                        div:"lstVehiculos",
+                        div:"lstBases",
                         data:{
-                            idElement: Vehiculo.VehiculoID,
-                            Icon:"local_shipping",
-                            Titulo: "Número Económico: " + Vehiculo.NoEconomico,
-                            Subtitulo1: Vehiculo.Marca + "; " + Vehiculo.Modelo,
-                            Subtitulo2: "<b>Placas: </b>" + Vehiculo.Placas
+                            idElement: Base.BaseID,
+                            Icon:"pin_drop",
+                            Titulo: "Base: " + Base.Nombre,
+                            Subtitulo1: Base.DirCalle + " " + Base.DirNumero + ", " + Base.DirColonia,
+                            Subtitulo2: "<b>Teléfono: </b>" + Base.Telefono
                         }
                     })
                 }
@@ -26,12 +26,12 @@
 		})
 	}
     
-    clickElement = function(VehiculoID){
-        window.location = "Vehiculo.html?id=" + VehiculoID
+    clickElement = function(BaseID){
+        window.location = "Base.html?id=" + BaseID
     }
     
     $("#btnAdd").click(function(){
-		window.location = "editarVehiculo.html"
+		window.location = "Base.html"
 	})
 
     $("#btnSearch").click(function(){
