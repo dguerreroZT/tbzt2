@@ -6,7 +6,7 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/llanta.html.css">
+    <link type="text/css" rel="stylesheet" href="css/vehiculo.html.css">
     <link rel="icon" href="img/LogoTireBits_2017.jpg">
         
     <!--Let browser know website is optimized for mobile-->
@@ -24,7 +24,7 @@
     <div class="navbar-fixed">
        <nav>
         <div class="nav-wrapper">
-          <a class="button" href="Llantas.html"><i class="material-icons left">arrow_back</i></a>
+          <a class="button" href="Vehiculos.html"><i class="material-icons left">arrow_back</i></a>
           <a href="#!" class="brand-logo">Llanta</a>
           <ul class="right">
              <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
@@ -39,10 +39,9 @@
             <h4><strong><span id="txtNoEconomico"></span></strong></h4>
             <h5><strong>Marca: </strong><span id="txtMarca"></span></h5>
             <h5><strong>Modelo: </strong><span id="txtModelo"></span></h5>
-            <h5><strong>Medida: </strong><span id="txtMedida"></span></h5>
+            <h5><strong>Año: </strong><span id="txtAño"></span></h5>
             <h5><strong>Última Medición: </strong><span id="txtFechaUltimaMedicion"></span></h5>
-            <h5><strong>Presión: </strong><span id="txtPresion"></span> PSI</h5>
-            <h5><strong>Profundidad: </strong><span id="txtProfundidad"></span> mm</h5>
+            <h5><strong>Kilometraje: </strong><span id="txtKilometraje"></span> km</h5>
           </div>
         </div>
       <div class="parallax"><img src="img/curves.jpg"></div>
@@ -71,8 +70,7 @@
               <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>PSI</th>
-                    <th>MM</th>
+                    <th>Kilometraje</th>
                 </tr>
               </thead>
               <tbody id="tbMediciones">
@@ -88,13 +86,13 @@
         <a id="btnAdd" class="btn-floating left btn-large waves-effect waves-light"><i class="material-icons">edit</i></a>
     </div>-->
     <div class="fixed-action-btn">
-      <a class="btn-floating btn-large waves-effect waves-light">
+      <a class="btn-floating btn-large">
         <i  class="large material-icons">menu</i>
       </a>
       <ul>
       <li><a class="btn-floating waves-effect waves-light blue tooltipped" data-position="left" data-delay="50" data-tooltip="Información"><i class="material-icons">info</i></a></li>
         <li><a class="btn-floating waves-effect waves-light green tooltipped" data-position="left" data-delay="50" data-tooltip="Agregar Medición"><i class="material-icons">alarm_add</i></a></li>
-        <li><a class="btn-floating waves-effect waves-light red tooltipped" data-position="left" data-delay="50" data-tooltip="Editar"><i class="material-icons">mode_edit</i></a></li>
+        <li><a id="btnEditar" class="btn-floating waves-effect waves-light red tooltipped" data-position="left" data-delay="50" data-tooltip="Editar"><i class="material-icons">mode_edit</i></a></li>
       </ul>
     </div>
     
@@ -106,6 +104,6 @@
     <script src="js/Core.js"></script>
     <script src="js/WebMethods.js"></script>
     <script src="js/TireBits.js"></script>
-    <script src="js/llanta.html.js"></script>    
+    <script src="js/Vehiculo.html.js"></script>    
 </body>
 </html>

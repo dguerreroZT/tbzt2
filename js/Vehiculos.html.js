@@ -27,7 +27,7 @@
 	}
     
     clickElement = function(VehiculoID){
-        window.location = "editarVehiculo.html?id=" + VehiculoID
+        window.location = "Vehiculo.html?id=" + VehiculoID
     }
     
     $("#btnAdd").click(function(){

@@ -20,7 +20,7 @@ $(function() {
 
             let vehiculoGuardado = yield TireBits.Vehiculos.guardar(vehiculo)
             if(vehiculoGuardado){
-                window.location = "Vehiculos.html"
+                window.location = "Vehiculo.html?id=" + urlParams.id || ""
             }
         })
     }
@@ -111,7 +111,7 @@ $(function() {
     $("#btnGuardar").click(guardarDatos);
     
     $("#btnCancelar").click(function(){
-        window.location = "Vehiculos.html"
+        window.location = "Vehiculo.html?id=" + urlParams.id || ""
     });
     
     setTimeout(function(){

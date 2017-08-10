@@ -261,6 +261,45 @@ TireBits = new function(){
             ]
             */
         },
+        
+        listadoMediciones:function(VehiculoID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerMedicionesVehiculo,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    VehiculoID: VehiculoID
+                }
+            })
+            .then(function(r){
+                var MedicionesVehiculos = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Medicion = {}
+                        for(let field of fields){
+                            Medicion[field] = row[fields.indexOf(field)]
+                        }
+                        MedicionesVehiculos.push(Medicion)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return MedicionesVehiculos
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {LlantaID: "abcdef", NoEconomico: "10121 IFR", Marca:"Michelin", Modelo: "XZE2", Presion: "100", Profundidad: "12", Ubicacion: "Montada", Lugar: "def"},
+                {LlantaID: "ghijkl", NoEconomico: "10190 IFR", Marca:"BlackFire", Modelo: "XZE3", Presion: "95", Profundidad: "12", Ubicacion: "Base"}
+            ]
+            */
+            
+        },
+        
         obtener:function(VehiculoID){
             return Core.request({
                 url: urlServer + webMethods.ObtenerVehiculo,
