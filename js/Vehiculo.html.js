@@ -39,7 +39,7 @@
         return spawn(function *(){
             let vehiculoID = urlParams.id || ""
             let vehiculo = yield TireBits.Vehiculos.obtener(vehiculoID)
-            console.log(vehiculo)
+            
             if(vehiculo){
                 $("#txtNoEconomico").html(vehiculo.NoEconomico)
                 $("#txtMarca").html(vehiculo.Marca)

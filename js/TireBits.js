@@ -224,6 +224,45 @@ TireBits = new function(){
         }
     }
     
+    this.Almacenes = {
+        listado: function(){
+            return Core.request({
+                url: urlServer + webMethods.ListadoAlmacenes,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    Usuario: Config.Usuario
+                }
+            })
+            .then(function(r){
+                var Almacenes = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var Almacen = {}
+                        for(let field of fields){
+                            Almacen[field] = row[fields.indexOf(field)]
+                        }
+                        Almacenes.push(Almacen)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return Almacenes
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {VehiculoID: "abcdef", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"},
+                {VehiculoID: "ghijkl", NoEconomico: "D-135", Marca:"BlackFire", Modelo: "GENERAL", Placas:"GALLEGOS"}
+            ]
+            */
+        }
+    }
+    
     this.Vehiculos = {
         listado: function(){
             return Core.request({
@@ -267,6 +306,7 @@ TireBits = new function(){
                 url: urlServer + webMethods.ObtenerMedicionesVehiculo,
                 data: {
                     EmpresaID: Config.EmpresaID,
+                    BaseID: Config.BaseID,
                     VehiculoID: VehiculoID
                 }
             })

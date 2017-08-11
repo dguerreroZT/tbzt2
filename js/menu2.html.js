@@ -9,4 +9,7 @@ $(document).ready(function() {
     $("#btnBases").click(function(){
 		window.location = "Bases.html"
 	});
+    $("#btnAlmacenes").click(function(){
+		window.location = "Almacenes.html"
+	});
 });
