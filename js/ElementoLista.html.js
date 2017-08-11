@@ -22,6 +22,7 @@ function agregarElementoListado(config){
         
         if(config.data.Img){
             $("#" + idIcon).remove()
+            $("#" + idImage).css({src:config.data.Img})
         }else{
             $("#" + idImage).remove()
         }
