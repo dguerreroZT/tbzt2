@@ -9,3 +9,13 @@ img {
    margin: 0;
    padding: 0;
 }
+.diagramPic{
+    float: left;
+    box-sizing: border-box;
+    min-height: 1px;
+    padding: 0 !important;
+}
+.diagramRow{
+    margin-bottom: 0;
+    max-width: 860px;
+}
