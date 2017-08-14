@@ -6,7 +6,7 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-  
+  <!--<link rel="stylesheet" type="text/css" href="css/formMedicion.html.css">-->
   <link rel="icon" href="img/LogoTireBits_2017.jpg">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
@@ -14,15 +14,15 @@
 <body>
   
     <nav>
-    <div class="nav-wrapper">
-      <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
-      <a id="btnGuardar" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
-      <a href="#!" class="brand-logo center"> &nbsp; Medicion</a>
-      <ul class="right">
+      <div class="nav-wrapper">
+        <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
+        <a id="btnGuardar" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
+        <a href="#!" class="brand-logo center"> &nbsp; Medicion</a>
+        <ul class="right">
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
-      </ul>
-    </div>
-   </nav>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
       <div class="row">
@@ -56,7 +56,7 @@
                         <select>
                           <option value="" disabled selected>Selecciona una opcion</option>
                         </select>
-                        <label>Posición</label>  
+                        <label>Posicion</label>  
                       </div>                
                     </div>
                   </div>
@@ -76,10 +76,8 @@
                   <option value="5">Revision</option>
                 </select>
                 <label>Motivo de la medicion</label>
-                
               </div>
 
-              <div class="input-field col s12 m5">
                 <div class="input-field col s12 m5">
                 <a id="btnKilometraje" class="waves-effect waves-light btn modal-trigger" href="#modalCorregirKilometraje"><i class="material-icons left">  </i><span id="txtKilometraje">Corregir</span></a>
                   <!-- Modal Structure -->
@@ -87,11 +85,10 @@
                     <div class="modal-content">
                       <div class="input-field col s12 m3">
                         <label>Kilometraje</label>
-                        <input id="txtKilometraje" type="text" onkeypress="return valida(event)" class="validate">                 
+                        <input id="txtKilometraje" type="text" onkeypress="return valida(event)" class="validate">           
                       </div>               
                     </div>
                   </div>
-              </div>
               </div>
 
 
@@ -108,7 +105,69 @@
               </div>
 
               <div class="input-field col s12 m7">
-              <p>Estado de la llanta    <a class="waves-effect waves-light btn  indigo">Revisar Estado</a></p>
+              <p>Estado de la llanta</p>
+              <div class="input-field col s12 m5">
+                <a id="btnEstado" class="waves-effect waves-light btn modal-trigger" href="#modalEstado"><i class="material-icons left"></i><span id="txtEstado">Revisar Estado</span></a>
+                  <!-- Modal Structure -->
+                  <div id="modalEstado" class="modal bottom-sheet">
+                    <div class="modal-content">
+                      <div class="input-field col s12 m5 offset-m4">
+                        <ul class="collection">
+                          <li class="collection-item">
+                            <p>Elemento 1 
+                              <input name="group1" type="radio" id="test1"/>
+                              <label for="test1"></label>
+                              <input name="group1" type="radio" id="test2"/>
+                              <label for="test2"></label>
+                              <input name="group1" type="radio" id="test3"/>
+                              <label for="test3"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item">
+                            <p>Elemento 2
+                              <input name="group1" type="radio" id="test4"/>
+                              <label for="test4"></label>
+                              <input name="group1" type="radio" id="test5"/>
+                              <label for="test5"></label>
+                              <input name="group1" type="radio" id="test6"/>
+                              <label for="test6"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item">
+                            <p>Elemento 3
+                              <input name="group1" type="radio" id="test7"/>
+                              <label for="test7"></label>
+                              <input name="group1" type="radio" id="test8"/>
+                              <label for="test8"></label>
+                              <input name="group1" type="radio" id="test9"/>
+                              <label for="test9"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item">
+                            <p>Elemento 4
+                              <input name="group1" type="radio" id="test10"/>
+                              <label for="test10"></label>
+                              <input name="group1" type="radio" id="test11"/>
+                              <label for="test11"></label>
+                              <input name="group1" type="radio" id="test12"/>
+                              <label for="test12"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item">
+                            <p>Elemento 5
+                              <input name="group1" type="radio" id="test13"/>
+                              <label for="test13"></label>
+                              <input name="group1" type="radio" id="test14"/>
+                              <label for="test14"></label>
+                              <input name="group1" type="radio" id="test15"/>
+                              <label for="test15"></label>
+                            </p>
+                          </li>
+                        </ul>  
+                      </div>        
+                    </div>
+                  </div>
+              </div>
               </div>
 
               <div class="input-field col s12 m12">
