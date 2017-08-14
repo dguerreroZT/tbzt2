@@ -1,0 +1,35 @@
+div .containerImg{
+	float: left;
+    padding-left: 30%;
+    padding-top: 20px;
+
+}
+
+.containerDatos{
+	float: left;
+	margin-left: 10px;
+
+}
+
+.parallax-container{
+	height: 120px;
+}
+
+@media only screen and (max-height: 700px) {
+    .parallax-container{
+        height: 100px;
+    }   
+}
+
+
+h3{
+	margin-left: 200px;
+}
+
+h4{
+	text-align: center;
+}
+
+h5{
+	text-align: left;
+}

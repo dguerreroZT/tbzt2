@@ -6,6 +6,8 @@ webMethods = {
         ListadoVehiculos:'Vehiculos.asmx/Listado',
         ListadoLlantas:'Llantas.asmx/Listado',
         ObtenerLlanta:'Llantas.asmx/Obtener',
+        ObtenerBase:'Bases.asmx/Obtener',
+        ObtenerAlmacen:'Almacenes.asmx/Obtener',
         ObtenerMedicionesLlanta:'Llantas.asmx/ObtenerMediciones',
         ObtenerMedicionesVehiculo:'Vehiculos.asmx/ObtenerMediciones',
         ObtenerMarcasVehiculos:'General.asmx/ObtenerMarcasVehiculos',

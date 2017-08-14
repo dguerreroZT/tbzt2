@@ -184,7 +184,30 @@ TireBits = new function(){
             guardarConfiguracion()
         },
         obtener:function(BaseID){
-            
+            return Core.request({
+                url: urlServer + webMethods.ObtenerBase,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    BaseID: BaseID,
+                    Usuario: Config.Usuario
+                }
+            })
+            .then(function(r){
+                var base
+                if (r.RowsCount){
+                    base = {}
+                    let row = r.Result[0]
+                    let fields = r.Fields
+                    for (let field of fields){
+                        base[field] = row[fields.indexOf(field)]
+                    }
+                }
+                return base
+            })
+            .catch(function(err){
+                console.log(err)
+                return false  
+            })
         },
         listado: function(){
             return Core.request({
