@@ -41,7 +41,7 @@
         return spawn(function *(){
             let llantaID = urlParams.id || ""
             let llanta = yield TireBits.Llantas.obtener(llantaID)
-            console.log(llanta)
+            
             if(llanta){
                 $("#txtNoEconomico").html(llanta.NoEconomico)
                 $("#txtMarca").html(llanta.Marca)
@@ -53,10 +53,22 @@
                 
                 
                 Materialize.updateTextFields();
+            }else{
+                Materialize.toast('No se encontró información de esta llanta', 3000,'',function(){
+                    window.location = "Llantas.html"
+                })
             }
         })
     }
 
+    $("#btnEditar").click(function(){
+        window.location = "editarLlanta.html?id=" + urlParams.id;
+    })
+    
+    $("#btnAgregarMedicion").click(function(){
+        window.location = "editarMedicion.html?llanta=" + urlParams.id;
+    })
+    
     
     cargarDatos()
     cargarListadoMediciones()

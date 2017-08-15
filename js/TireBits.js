@@ -84,7 +84,6 @@ TireBits = new function(){
         //return {abcd:"Modelo1", efgh:"Modelo2", ijkl:"Modelo3"}
     }
     
-    
     this.obtenerTiposVehiculos = function(){
         return Core.request({
             url: urlServer + webMethods.ObtenerTiposVehiculos,
@@ -104,6 +103,69 @@ TireBits = new function(){
         
         //return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
     }
+    
+    this.obtenerMarcasLlantas = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerMarcasLlantas,
+            data:{}
+        })
+        .then(function(r){
+            let marcas = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let MarcaID = row[rFields.indexOf("MarcaID")]
+                let NombreMarca = row[rFields.indexOf("NombreMarca")]
+                marcas[MarcaID] = NombreMarca
+            }
+            return marcas
+        })
+        
+        //return {abcd:"MarcaMarca1", efgh:"Marca2", ijkl:"Marca3"}
+    }
+    
+    this.obtenerModelosLlantas = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerModelosLlantas,
+            data:{}
+        })
+        .then(function(r){
+            let modelos = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let ModeloID = row[rFields.indexOf("ModeloID")]
+                let NombreModelo = row[rFields.indexOf("NombreModelo")]
+                modelos[ModeloID] = NombreModelo
+            }
+            return modelos
+        })
+        
+        //return {abcd:"Modelo1", efgh:"Modelo2", ijkl:"Modelo3"}
+    }
+    
+    this.obtenerMedidasLlantas = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerMedidasLlantas,
+            data:{}
+        })
+        .then(function(r){
+            let tipos = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let TipoID = row[rFields.indexOf("MedidaID")]
+                let NombreTipo = row[rFields.indexOf("NombreMedida")]
+                tipos[TipoID] = NombreTipo
+            }
+            return tipos
+        })
+        
+        //return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
+    }
+    
+    
+    
     
     this.Usuarios = {
         ingresar: function(usuario, nip){
@@ -373,7 +435,7 @@ TireBits = new function(){
                 }
             })
             .then(function(r){
-                let vehiculo
+                var vehiculo
                 if (r.RowsCount){
                     vehiculo = {}
                     let row = r.Result[0]
@@ -443,7 +505,7 @@ TireBits = new function(){
                 }
             })
             .then(function(r){
-                let llanta
+                var llanta
                 if (r.RowsCount){
                     llanta = {}
                     let row = r.Result[0]
@@ -546,6 +608,29 @@ TireBits = new function(){
             
         },
         
+        guardar: function(llanta){
+            if(llanta.LlantaID == ""){
+                llanta.LlantaID = Core.newId(6)
+            }
+            llanta.EmpresaID = Config.EmpresaID
+            llanta.Usuario = Config.Usuario
+            console.log(llanta)
+            
+            return Core.request({
+                url: urlServer + webMethods.GuardarLlanta,
+                data: llanta
+            })
+            .then(function(){
+                return true
+            })
+            .catch(function(err){
+                console.log(err)
+                return false
+            })
+            
+        }
+        /*,
+        
         insertar:function(llanta){
             var dataLlantas 
             dataLlantas = Core.getData(this.tbName)
@@ -564,7 +649,7 @@ TireBits = new function(){
             dataLlantas.push(row)
             Core.setData(this.tbName, dataLlantas)
             dataLlantas = null
-        }
+        }*/
     }
     
     this.Mediciones = {

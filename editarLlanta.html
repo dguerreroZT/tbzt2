@@ -36,7 +36,8 @@
             <div class="card-horizontal">
               <ul class="collection z-depth-2">
                 <div class="input-field col s12 m12">
-                  <input placeholder="Por ejemplo: PAN12185" id="txtEconomico" type="text" class="validate">
+                    <i class="material-icons prefix">album</i>
+                  <input id="txtNoEconomico" type="text" class="validate">
                   <label for="first_name">Numero Economico</label>
                 </div>
                 <div class="input-field col s12  m6">
@@ -56,10 +57,12 @@
                 </div>
                 <div class="input-field col s12 m6">
                   <i class="material-icons prefix">attach_money</i>
-                  <input id="txtCosto" type="text" onkeypress="return valida(event)" class="validate">
+                  <input id="txtCosto" type="number" class="validate">
+                    <label  for="txtCosto">Costo</label>
                 </div>
                 <div class="input-field col s12 m6">
-                  <input id="txtNotas" type="text" data-length="100">
+                  <i class="material-icons prefix">comment</i>
+                  <textArea id="txtNotas" type="text" class="materialize-textarea"></textArea>
                   <label for="input_text">Notas</label>
                 </div>
               </ul>
@@ -69,7 +72,11 @@
       </div>
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="js/Utils.js"></script>
+    <script src="js/Core.js"></script>
+    <script src="js/WebMethods.js"></script>
+    <script src="js/TireBits.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/formLlantas.html.js"></script>
+  <script type="text/javascript" src="js/editarLlanta.html.js"></script>
 </body>
 </html>
