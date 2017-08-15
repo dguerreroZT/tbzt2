@@ -4,3 +4,8 @@
     padding-left: 40px;
     color: white;
  }
+
+ .logo img{
+    width: 100px;
+    border-radius: 10px;
+}
