@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
  <head>
   <title>TireBits</title>
@@ -6,13 +6,18 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-  <!--<link rel="stylesheet" type="text/css" href="css/formMedicion.html.css">-->
+  <link rel="stylesheet" type="text/css" href="css/editarMedicion.html.css">
   <link rel="icon" href="img/LogoTireBits_2017.jpg">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
  </head>
 <body>
-  
+    
+     
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#">Solicitar Retiro</a></li>
+    </ul>
+    
     <nav>
       <div class="nav-wrapper">
         <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
@@ -29,150 +34,226 @@
         <div class="col s12 m12">
           <div class="card-horizontal">
             <ul class="collection">
-              <div class="input-field col s12 m12">
-                <p><span>Llanta</span></p>
+              <div class="input-field col s12 m12 center">
+                <h4>Llanta <span id="txtNoEconomico">XXX XXX</span></h4>
               </div>
 
               <div class="input-field col s12 m7">
-                <p>Ubicacion: Unidad ABC; Posicion 01</p>
-              </div>
-
-              <div class="input-field col s12 m5">
+                  <h5>Ubicación: <span id="txtUbicacion">Unidad ABC; Posición 01</span>
+                  <a href="#modalCorregirUbicacion" class="modal-trigger">
+                      <i class="material-icons blue-text">edit</i>
+                      </a>
+                  </h5>
+                  <!--
                 <a id="btnUbicacion" class="waves-effect waves-light btn modal-trigger" href="#modalCorregirUbicacion"><i class="material-icons left">  </i><span id="txtUbicacion">Corregir</span></a>
+                    -->
                   <!-- Modal Structure -->
-                  <div id="modalCorregirUbicacion" class="modal bottom-sheet">
+                  <div id="modalCorregirUbicacion" class="modal bottom-sheet panelUbicacion">
                     <div class="modal-content">
+                        <h4 class="center">Corregir Ubicación</h4>
                       <div class="input-field col s12 m12">
                         <select>
-                          <option value="" disabled selected>Selecciona una opcion</option>
+                          <option value="" disabled selected>Selecciona una opción</option>
                         </select>
                         <label>Ubicacion</label>  
                       </div>
-                      <div class="input-field col s12 m12">
-                        <input id="txtModelo" type="text" class="autocomplete">
-                        <label for="txtModelo">Modelo</label>
+                        
+                        <div class="input-field col s12 m12">
+                        <select>
+                          <option value="" disabled selected>Selecciona una opción</option>
+                        </select>
+                        <label>Lugar</label>  
                       </div>
+
                       <div class="input-field col s12 m12">
                         <select>
-                          <option value="" disabled selected>Selecciona una opcion</option>
+                          <option value="" disabled selected>Selecciona una opción</option>
                         </select>
                         <label>Posicion</label>  
-                      </div>                
+                      </div>      
+                        <div class="col s12 m12" style="margin-bottom: 20px">
+                        <a class="waves-effect waves-light btn right">Listo</a>
+                        </div>
                     </div>
                   </div>
               </div>
 
-              <div class="input-field col s12 m12">
-                <p>Kilometraje de vehiculo: 173 KM</p>
-              </div>
-
               <div class="input-field col s12 m7">
-                <select>
-                  <option value="" disabled selected>Selecciona una opcion</option>
-                  <option value="1">Medicion Normal</option>
-                  <option value="2">Reparacion</option>
-                  <option value="3">Renovacion</option>
-                  <option value="4">Montaje</option>
-                  <option value="5">Revision</option>
-                </select>
-                <label>Motivo de la medicion</label>
-              </div>
+                  <h5>Kilometraje del vehículo: <span id="txtKilometraje">173</span><span> KM</span>
+                  <a href="#modalCorregirKilometraje" class="modal-trigger">
+                      <i class="material-icons blue-text">edit</i>
+                      </a>
+                      </h5>
+                  
 
-                <div class="input-field col s12 m5">
-                <a id="btnKilometraje" class="waves-effect waves-light btn modal-trigger" href="#modalCorregirKilometraje"><i class="material-icons left">  </i><span id="txtKilometraje">Corregir</span></a>
+                <!--
+                    <a id="btnKilometraje" class="waves-effect waves-light btn modal-trigger" href="#modalCorregirKilometraje"><i class="material-icons left">  </i><span id="txtKilometraje">Corregir</span></a>
+                -->
                   <!-- Modal Structure -->
                   <div id="modalCorregirKilometraje" class="modal bottom-sheet">
                     <div class="modal-content">
-                      <div class="input-field col s12 m3">
-                        <label>Kilometraje</label>
+                      <h4 class="center">Corregir Kilometraje</h4>
+                      <div class="input-field col s12 m2 offset-m5">
+                        <i class="material-icons prefix">slow_motion_video</i>
                         <input id="txtKilometraje" type="text" onkeypress="return valida(event)" class="validate">           
-                      </div>               
+                        <label for="txtKilometraje">Kilometraje</label>
+                      </div>  
+                        <div class="col s12 m12">
+                        <a class="waves-effect waves-light btn right">Listo</a>
+                        </div>
+                        
                     </div>
                   </div>
               </div>
 
+                
+              <!--  
+              <div class="input-field col s12 m7" style="margin-top: 50px">
+                <select>
+                  <option value="1" selected>Medición Normal</option>
+                  <option value="2">Reparación</option>
+                  <option value="3">Renovación</option>
+                  <option value="4">Montaje</option>
+                </select>
+                <label>Motivo de la medición</label>
+              </div>
+                -->
 
-              <div class="input-field col s12 m7">
-                <i class="material-icons prefix">schedule</i>
+
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">timer</i>
                 <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Presion</label>
+                <label for="icon_prefix">Presión</label>
               </div>
 
-              <div class="input-field col s12 m7">
-                <i class="material-icons prefix">vertical_align_bottom</i>
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">play_for_work</i>
                 <input id="icon_prefix" type="text" class="validate">
                 <label for="icon_prefix">Profundidad</label>
               </div>
 
-              <div class="input-field col s12 m7">
-              <p>Estado de la llanta</p>
-              <div class="input-field col s12 m5">
+              <div class="input-field col s12 m12 center">
                 <a id="btnEstado" class="waves-effect waves-light btn modal-trigger" href="#modalEstado"><i class="material-icons left"></i><span id="txtEstado">Revisar Estado</span></a>
                   <!-- Modal Structure -->
-                  <div id="modalEstado" class="modal bottom-sheet">
+                  <div id="modalEstado" class="modal bottom-sheet panelEstadoLlanta">
                     <div class="modal-content">
+                      <h4 class="center">Estado de la llanta</h4>
                       <div class="input-field col s12 m5 offset-m4">
                         <ul class="collection">
-                          <li class="collection-item">
-                            <p>Elemento 1 
-                              <input name="group1" type="radio" id="test1"/>
+                          <li class="collection-item estadoLlantaElement">
+                              <p>Tuercas
+                              <input name="group1" type="radio" id="test1" class="semaforoRojo"/>
                               <label for="test1"></label>
-                              <input name="group1" type="radio" id="test2"/>
+                              <input name="group1" type="radio" id="test2" class="semaforoAmarillo"/>
                               <label for="test2"></label>
-                              <input name="group1" type="radio" id="test3"/>
+                              <input name="group1" type="radio" id="test3" class="semaforoVerde"/>
                               <label for="test3"></label>
                             </p>
                           </li>
-                          <li class="collection-item">
-                            <p>Elemento 2
-                              <input name="group1" type="radio" id="test4"/>
+                          <li class="collection-item estadoLlantaElement">
+                              <p>Válvula
+                              <input name="group2" type="radio" id="test4" class="semaforoRojo"/>
                               <label for="test4"></label>
-                              <input name="group1" type="radio" id="test5"/>
+                              <input name="group2" type="radio" id="test5" class="semaforoAmarillo"/>
                               <label for="test5"></label>
-                              <input name="group1" type="radio" id="test6"/>
+                              <input name="group2" type="radio" id="test6" class="semaforoVerde"/>
                               <label for="test6"></label>
-                            </p>
+                              </p>
                           </li>
-                          <li class="collection-item">
-                            <p>Elemento 3
-                              <input name="group1" type="radio" id="test7"/>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Tapón de la válvula
+                              <input name="group3" type="radio" id="test7" class="semaforoRojo"/>
                               <label for="test7"></label>
-                              <input name="group1" type="radio" id="test8"/>
+                              <input name="group3" type="radio" id="test8" class="semaforoAmarillo"/>
                               <label for="test8"></label>
-                              <input name="group1" type="radio" id="test9"/>
+                              <input name="group3" type="radio" id="test9" class="semaforoVerde"/>
                               <label for="test9"></label>
                             </p>
                           </li>
-                          <li class="collection-item">
-                            <p>Elemento 4
-                              <input name="group1" type="radio" id="test10"/>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Birlos
+                              <input name="group4" type="radio" id="test10" class="semaforoRojo"/>
                               <label for="test10"></label>
-                              <input name="group1" type="radio" id="test11"/>
+                              <input name="group4" type="radio" id="test11" class="semaforoAmarillo"/>
                               <label for="test11"></label>
-                              <input name="group1" type="radio" id="test12"/>
+                              <input name="group4" type="radio" id="test12" class="semaforoVerde"/>
                               <label for="test12"></label>
                             </p>
                           </li>
-                          <li class="collection-item">
-                            <p>Elemento 5
-                              <input name="group1" type="radio" id="test13"/>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Corona
+                              <input name="group5" type="radio" id="test13" class="semaforoRojo"/>
                               <label for="test13"></label>
-                              <input name="group1" type="radio" id="test14"/>
+                              <input name="group5" type="radio" id="test14" class="semaforoAmarillo"/>
                               <label for="test14"></label>
-                              <input name="group1" type="radio" id="test15"/>
+                              <input name="group5" type="radio" id="test15" class="semaforoVerde"/>
+                              <label for="test15"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item estadoLlantaElement">
+                              <p>Tuercas
+                              <input name="group1" type="radio" id="test1" class="semaforoRojo"/>
+                              <label for="test1"></label>
+                              <input name="group1" type="radio" id="test2" class="semaforoAmarillo"/>
+                              <label for="test2"></label>
+                              <input name="group1" type="radio" id="test3" class="semaforoVerde"/>
+                              <label for="test3"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item estadoLlantaElement">
+                              <p>Válvula
+                              <input name="group2" type="radio" id="test4" class="semaforoRojo"/>
+                              <label for="test4"></label>
+                              <input name="group2" type="radio" id="test5" class="semaforoAmarillo"/>
+                              <label for="test5"></label>
+                              <input name="group2" type="radio" id="test6" class="semaforoVerde"/>
+                              <label for="test6"></label>
+                              </p>
+                          </li>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Tapón de la válvula
+                              <input name="group3" type="radio" id="test7" class="semaforoRojo"/>
+                              <label for="test7"></label>
+                              <input name="group3" type="radio" id="test8" class="semaforoAmarillo"/>
+                              <label for="test8"></label>
+                              <input name="group3" type="radio" id="test9" class="semaforoVerde"/>
+                              <label for="test9"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Birlos
+                              <input name="group4" type="radio" id="test10" class="semaforoRojo"/>
+                              <label for="test10"></label>
+                              <input name="group4" type="radio" id="test11" class="semaforoAmarillo"/>
+                              <label for="test11"></label>
+                              <input name="group4" type="radio" id="test12" class="semaforoVerde"/>
+                              <label for="test12"></label>
+                            </p>
+                          </li>
+                          <li class="collection-item estadoLlantaElement">
+                            <p>Corona
+                              <input name="group5" type="radio" id="test13" class="semaforoRojo"/>
+                              <label for="test13"></label>
+                              <input name="group5" type="radio" id="test14" class="semaforoAmarillo"/>
+                              <label for="test14"></label>
+                              <input name="group5" type="radio" id="test15" class="semaforoVerde"/>
                               <label for="test15"></label>
                             </p>
                           </li>
                         </ul>  
-                      </div>        
+                      </div> 
+                        <div class="col s12 m12" style="margin-bottom: 20px">
+                        <a class="waves-effect waves-light btn right">Listo</a>
+                        </div>
                     </div>
                   </div>
               </div>
-              </div>
-
-              <div class="input-field col s12 m12">
-                <input id="input_text" type="text" data-length="100">
-                <label for="input_text">Notas</label>
+              
+                
+              <div class="input-field col s12 m12" style="margin-top: 30px">
+                <i class="material-icons prefix">comment</i>
+                  <textArea id="txtNotas" type="text" class="materialize-textarea"></textArea>
+                  <label for="txtNotas">Notas</label>
               </div>
 
             </ul>
@@ -183,6 +264,10 @@
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/formMedicion.html.js"></script> 
+    <script src="js/Utils.js"></script>
+    <script src="js/Core.js"></script>
+    <script src="js/WebMethods.js"></script>
+    <script src="js/TireBits.js"></script>
+    <script type="text/javascript" src="js/editarMedicion.html.js"></script> 
 </body>
 </html>

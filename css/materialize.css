@@ -6435,12 +6435,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid  var(--secondary-color);
+  border: 2px solid var(--secondary-color);
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color:  var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 [type="radio"]:checked + label:after {
