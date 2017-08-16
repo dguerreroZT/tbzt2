@@ -26,3 +26,9 @@ label{
   text-align: center;
   padding-top: 200px;
 }
+
+@media (max-width: 750px) {
+    .row{
+      padding-top: 50px;
+    {
+}
