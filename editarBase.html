@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>TireBits</title>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="css/animsition.min.css">
+      <link rel="stylesheet" href="css/animate.min.css">
+      <link rel="stylesheet" type="text/css" href="css/editarBase.html.css">
+      <link rel="icon" href="img/LogoTireBits_2017.jpg">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+<body>
+      <nav>
+        <div class="nav-wrapper">
+          <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
+          <a id="btnGuardar" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
+          <a href="#!" class="brand-logo center"> &nbsp; Editar Base</a>
+          <ul class="right">
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
+          </ul>
+        </div>
+      </nav>
+
+       <div class="container" style="margin-top: 25px">
+        <div class="row">
+         <div class="col s12 m8 offset-m2 z-depth-1 white">
+          <div class="row">
+            <form class="col s12" id="frmBases">
+    	         <div class="input-field col s12">
+    	          <i class="material-icons prefix">account_balance</i>
+    	          <input id="txtNomBase" type="text" class="validate">
+    	          <label for="icon_prefix">Nombre de la base</label>
+    	         </div>  
+    	         <div class="input-field col s12">
+    	          <i class="material-icons prefix">directions</i>
+    	          <input id="txtCalle" type="text" class="validate">
+    	          <label for="icon_prefix">Calle</label>
+    	         </div>  
+               <div class="input-field col s12">
+                <i class="material-icons prefix">code</i>
+                <input id="txtNumero" type="tel" class="validate">
+                <label for="access_time">Número</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">place</i>
+                <input id="txtColonia" type="tel" class="validate">
+                <label for="access_time">Colonia</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">pin_drop</i>
+                <input id="txtMunicipio" type="tel" class="validate">
+                <label for="access_time">Municipio</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">terrain</i>
+                <input id="txtEstado" type="tel" class="validate">
+                <label for="access_time">Estado</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">code</i>
+                <input id="access_time" type="tel" class="validate">
+                <label for="txtCodigoPostal">Codigo postal</label>
+               </div>     
+               <div class="input-field col s12">
+                <i class="material-icons prefix">phone</i>
+                <input id="txtTelefono" type="tel" class="validate">
+                <label for="access_time">Telefono</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">print</i>
+                <input id="txtFax" type="tel" class="validate">
+                <label for="access_time">Fax</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input id="txtCorreo" type="tel" class="validate">
+                <label for="access_time">Correo Electronico</label>
+               </div>
+               <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="txtNotas" class="materialize-textarea"></textarea>
+               </div>
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script src="js/animsition.min.js"></script>
+      <script src="js/editarBase.html.js"></script>
+    
+</body>
+</html>
