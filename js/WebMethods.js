@@ -10,6 +10,8 @@ webMethods = {
         ObtenerBase:'Bases.asmx/Obtener',
         ObtenerAlmacen:'Almacenes.asmx/Obtener',
         ObtenerMedicionesLlanta:'Llantas.asmx/ObtenerMediciones',
+        ObtenerEstadoLlanta:'Llantas.asmx/ObtenerEstado',
+        ObtenerUltimaMedicionLlanta:'Llantas.asmx/ObtenerUltimaMedicion',
         ObtenerMedicionesVehiculo:'Vehiculos.asmx/ObtenerMediciones',
         ObtenerMarcasVehiculos:'General.asmx/ObtenerMarcasVehiculos',
         ObtenerTiposVehiculos:'General.asmx/ObtenerTiposVehiculos',
@@ -17,6 +19,7 @@ webMethods = {
         ObtenerMarcasLlantas:'General.asmx/ObtenerMarcasLlantas',
         ObtenerModelosLlantas:'General.asmx/ObtenerModelosLlantas',
         ObtenerMedidasLlantas:'General.asmx/ObtenerMedidasLlantas',
+        ObtenerLugares:'General.asmx/ObtenerLugares',
         GuardarVehiculo:'Vehiculos.asmx/Guardar',
         ObtenerVehiculo:'Vehiculos.asmx/Obtener'
     }

@@ -22,7 +22,7 @@
       <div class="nav-wrapper">
         <a id="btnCancelar" href="#"><i class="material-icons left" style="padding-left: 10px" title="Cancelar">close</i></a>
         <a id="btnGuardar" class="button" href="#"><i class="material-icons left" style="padding-left: 20px" title="Guardar">check</i></a>
-        <a href="#!" class="brand-logo center"> &nbsp; Medicion</a>
+        <a href="#!" class="brand-logo center"> &nbsp; Medición</a>
         <ul class="right">
          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"> <i class="material-icons right">more_vert</i></a></li>
         </ul>
@@ -35,12 +35,12 @@
           <div class="card-horizontal">
             <ul class="collection">
               <div class="input-field col s12 m12 center">
-                <h4>Llanta <span id="txtNoEconomico">XXX XXX</span></h4>
+                <h4>Llanta <span id="lblNoEconomico"></span></h4>
               </div>
 
               <div class="input-field col s12 m7">
-                  <h5>Ubicación: <span id="txtUbicacion">Unidad ABC; Posición 01</span>
-                  <a href="#modalCorregirUbicacion" class="modal-trigger">
+                  <h5>Ubicación: <span id="lblUbicacion"></span>
+                  <a href="#modalCorregirUbicacion" id="btnCorregirUbicacion" class="modal-trigger">
                       <i class="material-icons blue-text">edit</i>
                       </a>
                   </h5>
@@ -52,10 +52,12 @@
                     <div class="modal-content">
                         <h4 class="center">Corregir Ubicación</h4>
                       <div class="input-field col s12 m12">
-                        <select>
-                          <option value="" disabled selected>Selecciona una opción</option>
+                        <select id="cboUbicacion">
+                          <option value="V">Vehículo</option>
+                          <option value="B">Base</option>
+                          <option value="A">Almacén</option>
                         </select>
-                        <label>Ubicacion</label>  
+                        <label>Ubicación</label>  
                       </div>
                         
                         <div class="input-field col s12 m12">
@@ -69,18 +71,18 @@
                         <select>
                           <option value="" disabled selected>Selecciona una opción</option>
                         </select>
-                        <label>Posicion</label>  
+                        <label>Posición</label>  
                       </div>      
                         <div class="col s12 m12" style="margin-bottom: 20px">
-                        <a class="waves-effect waves-light btn right">Listo</a>
+                        <a id="btnUbicacionAceptar" class="waves-effect waves-light btn right">Listo</a>
                         </div>
                     </div>
                   </div>
               </div>
 
-              <div class="input-field col s12 m7">
-                  <h5>Kilometraje del vehículo: <span id="txtKilometraje">173</span><span> KM</span>
-                  <a href="#modalCorregirKilometraje" class="modal-trigger">
+              <div class="input-field col s12 m7" id="pnlKilometraje">
+                  <h5>Kilometraje del vehículo: <span id="lblKilometraje">173</span><span> KM</span>
+                  <a href="#modalCorregirKilometraje" id="btnCorregirKilometraje" class="modal-trigger">
                       <i class="material-icons blue-text">edit</i>
                       </a>
                       </h5>
@@ -95,11 +97,11 @@
                       <h4 class="center">Corregir Kilometraje</h4>
                       <div class="input-field col s12 m2 offset-m5">
                         <i class="material-icons prefix">slow_motion_video</i>
-                        <input id="txtKilometraje" type="text" onkeypress="return valida(event)" class="validate">           
+                        <input id="txtKilometraje" type="text" class="validate">         
                         <label for="txtKilometraje">Kilometraje</label>
                       </div>  
-                        <div class="col s12 m12">
-                        <a class="waves-effect waves-light btn right">Listo</a>
+                        <div class="col s12 m12" style="margin-bottom: 20px">
+                        <a id="btnKilometrajeAceptar" class="waves-effect waves-light btn right">Listo</a>
                         </div>
                         
                     </div>
@@ -122,14 +124,14 @@
 
               <div class="input-field col s12 m6">
                 <i class="material-icons prefix">timer</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Presión</label>
+                <input id="txtPresion" type="text" class="validate">
+                <label for="txtPresion">Presión</label>
               </div>
 
               <div class="input-field col s12 m6">
                 <i class="material-icons prefix">play_for_work</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Profundidad</label>
+                <input id="txtProfundidad" type="text" class="validate">
+                <label for="txtProfundidad">Profundidad</label>
               </div>
 
               <div class="input-field col s12 m12 center">
@@ -139,111 +141,12 @@
                     <div class="modal-content">
                       <h4 class="center">Estado de la llanta</h4>
                       <div class="input-field col s12 m5 offset-m4">
-                        <ul class="collection">
-                          <li class="collection-item estadoLlantaElement">
-                              <p>Tuercas
-                              <input name="group1" type="radio" id="test1" class="semaforoRojo"/>
-                              <label for="test1"></label>
-                              <input name="group1" type="radio" id="test2" class="semaforoAmarillo"/>
-                              <label for="test2"></label>
-                              <input name="group1" type="radio" id="test3" class="semaforoVerde"/>
-                              <label for="test3"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                              <p>Válvula
-                              <input name="group2" type="radio" id="test4" class="semaforoRojo"/>
-                              <label for="test4"></label>
-                              <input name="group2" type="radio" id="test5" class="semaforoAmarillo"/>
-                              <label for="test5"></label>
-                              <input name="group2" type="radio" id="test6" class="semaforoVerde"/>
-                              <label for="test6"></label>
-                              </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Tapón de la válvula
-                              <input name="group3" type="radio" id="test7" class="semaforoRojo"/>
-                              <label for="test7"></label>
-                              <input name="group3" type="radio" id="test8" class="semaforoAmarillo"/>
-                              <label for="test8"></label>
-                              <input name="group3" type="radio" id="test9" class="semaforoVerde"/>
-                              <label for="test9"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Birlos
-                              <input name="group4" type="radio" id="test10" class="semaforoRojo"/>
-                              <label for="test10"></label>
-                              <input name="group4" type="radio" id="test11" class="semaforoAmarillo"/>
-                              <label for="test11"></label>
-                              <input name="group4" type="radio" id="test12" class="semaforoVerde"/>
-                              <label for="test12"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Corona
-                              <input name="group5" type="radio" id="test13" class="semaforoRojo"/>
-                              <label for="test13"></label>
-                              <input name="group5" type="radio" id="test14" class="semaforoAmarillo"/>
-                              <label for="test14"></label>
-                              <input name="group5" type="radio" id="test15" class="semaforoVerde"/>
-                              <label for="test15"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                              <p>Tuercas
-                              <input name="group1" type="radio" id="test1" class="semaforoRojo"/>
-                              <label for="test1"></label>
-                              <input name="group1" type="radio" id="test2" class="semaforoAmarillo"/>
-                              <label for="test2"></label>
-                              <input name="group1" type="radio" id="test3" class="semaforoVerde"/>
-                              <label for="test3"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                              <p>Válvula
-                              <input name="group2" type="radio" id="test4" class="semaforoRojo"/>
-                              <label for="test4"></label>
-                              <input name="group2" type="radio" id="test5" class="semaforoAmarillo"/>
-                              <label for="test5"></label>
-                              <input name="group2" type="radio" id="test6" class="semaforoVerde"/>
-                              <label for="test6"></label>
-                              </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Tapón de la válvula
-                              <input name="group3" type="radio" id="test7" class="semaforoRojo"/>
-                              <label for="test7"></label>
-                              <input name="group3" type="radio" id="test8" class="semaforoAmarillo"/>
-                              <label for="test8"></label>
-                              <input name="group3" type="radio" id="test9" class="semaforoVerde"/>
-                              <label for="test9"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Birlos
-                              <input name="group4" type="radio" id="test10" class="semaforoRojo"/>
-                              <label for="test10"></label>
-                              <input name="group4" type="radio" id="test11" class="semaforoAmarillo"/>
-                              <label for="test11"></label>
-                              <input name="group4" type="radio" id="test12" class="semaforoVerde"/>
-                              <label for="test12"></label>
-                            </p>
-                          </li>
-                          <li class="collection-item estadoLlantaElement">
-                            <p>Corona
-                              <input name="group5" type="radio" id="test13" class="semaforoRojo"/>
-                              <label for="test13"></label>
-                              <input name="group5" type="radio" id="test14" class="semaforoAmarillo"/>
-                              <label for="test14"></label>
-                              <input name="group5" type="radio" id="test15" class="semaforoVerde"/>
-                              <label for="test15"></label>
-                            </p>
-                          </li>
+                        <ul class="collection" id="lstSemaforoEstado">
+                          <!-- Aqui van los estados de la llanta -->
                         </ul>  
                       </div> 
                         <div class="col s12 m12" style="margin-bottom: 20px">
-                        <a class="waves-effect waves-light btn right">Listo</a>
+                        <a id="btnEstadoAceptar" class="waves-effect waves-light btn right">Listo</a>
                         </div>
                     </div>
                   </div>

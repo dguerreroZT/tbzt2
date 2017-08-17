@@ -164,7 +164,29 @@ TireBits = new function(){
         //return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
     }
     
-    
+    this.obtenerLugares = function(){
+        return Core.request({
+            url: urlServer + webMethods.ObtenerLugares,
+            data:{
+                EmpresaID: Config.EmpresaID,
+                BaseID: Config.BaseID,
+                Usuario: Config.Usuario
+            }
+        })
+        .then(function(r){
+            let lugares = {}
+            rows = r.Result;
+            rFields = r.Fields
+            for(let row of rows){
+                let LugarID = row[rFields.indexOf("LugarID")]
+                let Nombre = row[rFields.indexOf("Nombre")]
+                lugares[LugarID] = Nombre
+            }
+            return lugares
+        })
+        
+        //return {abcd:"Tipo1", efgh:"Tipo2", ijkl:"Tipo3"}
+    }
     
     
     this.Usuarios = {
@@ -532,6 +554,42 @@ TireBits = new function(){
             //return {data:arrayLlantas, index:indexLlantas}
         },
         
+        obtenerUltimaMedicion:function(LlantaID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerUltimaMedicionLlanta,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    LlantaID: LlantaID
+                }
+            })
+            .then(function(r){
+                var medicionLlanta
+                if (r.RowsCount){
+                    medicionLlanta = {}
+                    let row = r.Result[0]
+                    let fields = r.Fields
+                    for (let field of fields){
+                        medicionLlanta[field] = row[fields.indexOf(field)]
+                    }
+                }
+                return medicionLlanta
+            })
+            .catch(function(err){
+                console.log(err)
+                return false  
+            })
+            
+            /*
+            var dataLlantas = Core.getData(this.tbName)
+            for (i in dataLlantas){
+                var ll = dataLlantas[i]
+                if(ll.LlantaID == LlantaID)
+                    return ll;
+            }
+            */
+            //return {data:arrayLlantas, index:indexLlantas}
+        },
+        
         listado:function(){
             return Core.request({
                 url: urlServer + webMethods.ListadoLlantas,
@@ -594,6 +652,44 @@ TireBits = new function(){
                     console.log(r.Message)
                 }
                 return MedicionesLlantas
+            })
+            .catch(function(msg){
+                console.log(msg)
+                return []
+            })
+            /*
+            return [
+                {LlantaID: "abcdef", NoEconomico: "10121 IFR", Marca:"Michelin", Modelo: "XZE2", Presion: "100", Profundidad: "12", Ubicacion: "Montada", Lugar: "def"},
+                {LlantaID: "ghijkl", NoEconomico: "10190 IFR", Marca:"BlackFire", Modelo: "XZE3", Presion: "95", Profundidad: "12", Ubicacion: "Base"}
+            ]
+            */
+            
+        },
+        
+        obtenerEstado:function(LlantaID){
+            return Core.request({
+                url: urlServer + webMethods.ObtenerEstadoLlanta,
+                data: {
+                    EmpresaID: Config.EmpresaID,
+                    LlantaID: LlantaID
+                }
+            })
+            .then(function(r){
+                var EstadosLlanta = []
+                if(r.OK){
+                    var rows = r.Result
+                    var fields = r.Fields
+                    for(let row of rows){
+                        var EstadoLlanta = {}
+                        for(let field of fields){
+                            EstadoLlanta[field] = row[fields.indexOf(field)]
+                        }
+                        EstadosLlanta.push(EstadoLlanta)
+                    }
+                }else{
+                    console.log(r.Message)
+                }
+                return EstadosLlanta
             })
             .catch(function(msg){
                 console.log(msg)
