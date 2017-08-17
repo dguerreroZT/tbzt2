@@ -2,13 +2,11 @@ div .containerImg{
 	float: left;
     padding-left: 30%;
     padding-top: 20px;
-
 }
 
 .containerDatos{
 	float: left;
 	margin-left: 10px;
-
 }
 
 .parallax-container{
@@ -35,6 +33,10 @@ h5{
 }
 
 
+.logo img{
+    width: 100px;
+    border-radius: 10px;
+}
 
 /*Para el diagrama*/
 .container{
