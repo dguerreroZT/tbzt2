@@ -104,7 +104,7 @@
         $("#navBuscar").css({display:"block"})
         $("#Buscar").focus();        
     })
-
+    
     cargarListado()
     
     

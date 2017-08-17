@@ -1,0 +1,52 @@
+[type="radio"].semaforoRojo + label:before,
+[type="radio"].semaforoRojo + label:after,
+[type="radio"].semaforoAmarillo + label:before,
+[type="radio"].semaforoAmarillo + label:after,
+[type="radio"].semaforoVerde + label:before,
+[type="radio"].semaforoVerde + label:after{
+  top: -10px;
+  width:30px;
+  height: 30px;  
+}
+
+
+[type="radio"].semaforoRojo:checked + label:before,
+[type="radio"].semaforoRojo:checked + label:after{
+  border: 2px solid #ff5252
+}
+
+[type="radio"].semaforoRojo:checked + label:after {
+  background-color: #ff5252
+}
+
+[type="radio"].semaforoAmarillo:checked + label:before,
+[type="radio"].semaforoAmarillo:checked + label:after{
+  border: 2px solid #ffea00
+}
+
+[type="radio"].semaforoAmarillo:checked + label:after {
+  background-color: #ffea00
+}
+
+
+[type="radio"].semaforoVerde:checked + label:before,
+[type="radio"].semaforoVerde:checked + label:after{
+  border: 2px solid #00c853
+}
+
+[type="radio"].semaforoVerde:checked + label:after {
+  background-color: #00c853
+}
+
+.collection .collection-item.estadoLlantaElement{
+    padding: 1px 20px;
+    text-align: right;
+}
+
+.modal.bottom-sheet.panelEstadoLlanta{
+    max-height: 80%
+}
+
+.modal.bottom-sheet.panelUbicacion{
+    max-height: 70%
+}

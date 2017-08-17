@@ -111,7 +111,11 @@ $(function() {
     $("#btnGuardar").click(guardarDatos);
     
     $("#btnCancelar").click(function(){
-        window.location = "Vehiculo.html?id=" + urlParams.id || ""
+        if(urlParams.id){
+            window.location = "Vehiculo.html?id=" + urlParams.id;
+        }else{
+            window.location = "Vehiculos.html"
+        }
     });
     
     setTimeout(function(){
