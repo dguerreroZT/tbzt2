@@ -3041,7 +3041,11 @@ td, th {
 .collection .collection-item.avatar i.circle {
   font-size: 18px;
   line-height: 42px;
+<<<<<<< HEAD
+  color: var(--secondary-color);
+=======
   color:  var(--secondary-color);
+>>>>>>> 859bb6bfb8606eabdb8c7aa2df618665f465084a
   background-color: white;
   text-align: center;
 }

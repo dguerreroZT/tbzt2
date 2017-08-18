@@ -27,8 +27,15 @@ label{
   padding-top: 200px;
 }
 
+<<<<<<< HEAD
+@media (max-width: 750px){
+  .row{
+    padding-top: 50px;
+  }
+=======
 @media (max-width: 750px) {
     .row{
       padding-top: 50px;
     {
+>>>>>>> 859bb6bfb8606eabdb8c7aa2df618665f465084a
 }
