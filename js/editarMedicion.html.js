@@ -62,7 +62,7 @@ $(function() {
             if(medicionLlanta){
                 $("#lblNoEconomico").html(medicionLlanta.NoEconomico)
                 $("#lblUbicacion").html(medicionLlanta.DescripcionUbicacion + ' ' + medicionLlanta.Lugar + (medicionLlanta.Posicion ? '; Posición ' + medicionLlanta.Posicion : ''))
-                $("#lblKilometraje").html(medicionLlanta.Kilometraje)
+                $("#lblKilometraje").html(medicionLlanta.Kilometraje || 0.0)
                 $("#txtPresion").val(medicionLlanta.Presion || 0.0)
                 $("#txtProfundidad").val(medicionLlanta.Profundidad || 0.0)
                 //$("#txtNotas").val(medicionLlanta.Notas)
@@ -120,7 +120,7 @@ $(function() {
         }
     });
     
-    $("#btnEstadoAceptar").click(function(){
+    $("#btnKilometrajeAceptar").click(function(){
         corregirKilometraje()
     })
     

@@ -1,6 +1,4 @@
-TireBits = new function(){
-    var testMode = true;
-    var urlServer = testMode ? '../' : "tirebits.mx/TireBits20"
+﻿TireBits = new function(){
 
     var Config = Core.getData("TireBits_Configuracion") || {}
     
@@ -29,33 +27,18 @@ TireBits = new function(){
         inicializar()
     }
     
-/*    localStorage.getItem("TireBits_Configuracion")
-    //localStorage.getItem("TireBits_Usuarios")
-    //localStorage.getItem("TireBits_Usuarios_idx")
-    localStorage.getItem("TireBits_Empresas")
-    localStorage.getItem("TireBits_Empresas_idx")
-    localStorage.getItem("TireBits_Bases")
-    localStorage.getItem("TireBits_Bases_idx")
-    localStorage.getItem("TireBits_Unidades")
-    localStorage.getItem("TireBits_Unidades_idx")
-    localStorage.getItem("TireBits_Llantas")
-    localStorage.getItem("TireBits_Llantas_idx")
-    localStorage.getItem("TireBits_Mediciones")
-    localStorage.getItem("TireBits_Mediciones_idx")
-    */
-    
     this.obtenerMarcasVehiculos = function(){
         return Core.request({
             url: urlServer + webMethods.ObtenerMarcasVehiculos,
             data:{}
         })
         .then(function(r){
-            let marcas = {}
+            var marcas = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let MarcaID = row[rFields.indexOf("MarcaID")]
-                let NombreMarca = row[rFields.indexOf("NombreMarca")]
+            for(var row of rows){
+                var MarcaID = row[rFields.indexOf("MarcaID")]
+                var NombreMarca = row[rFields.indexOf("NombreMarca")]
                 marcas[MarcaID] = NombreMarca
             }
             return marcas
@@ -70,12 +53,12 @@ TireBits = new function(){
             data:{}
         })
         .then(function(r){
-            let modelos = {}
+            var modelos = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let ModeloID = row[rFields.indexOf("ModeloID")]
-                let NombreModelo = row[rFields.indexOf("NombreModelo")]
+            for(var row of rows){
+                var ModeloID = row[rFields.indexOf("ModeloID")]
+                var NombreModelo = row[rFields.indexOf("NombreModelo")]
                 modelos[ModeloID] = NombreModelo
             }
             return modelos
@@ -90,12 +73,12 @@ TireBits = new function(){
             data:{}
         })
         .then(function(r){
-            let tipos = {}
+            var tipos = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let TipoID = row[rFields.indexOf("TipoID")]
-                let NombreTipo = row[rFields.indexOf("NombreTipo")]
+            for(var row of rows){
+                var TipoID = row[rFields.indexOf("TipoID")]
+                var NombreTipo = row[rFields.indexOf("NombreTipo")]
                 tipos[TipoID] = NombreTipo
             }
             return tipos
@@ -110,12 +93,12 @@ TireBits = new function(){
             data:{}
         })
         .then(function(r){
-            let marcas = {}
+            var marcas = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let MarcaID = row[rFields.indexOf("MarcaID")]
-                let NombreMarca = row[rFields.indexOf("NombreMarca")]
+            for(var row of rows){
+                var MarcaID = row[rFields.indexOf("MarcaID")]
+                var NombreMarca = row[rFields.indexOf("NombreMarca")]
                 marcas[MarcaID] = NombreMarca
             }
             return marcas
@@ -130,12 +113,12 @@ TireBits = new function(){
             data:{}
         })
         .then(function(r){
-            let modelos = {}
+            var modelos = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let ModeloID = row[rFields.indexOf("ModeloID")]
-                let NombreModelo = row[rFields.indexOf("NombreModelo")]
+            for(var row of rows){
+                var ModeloID = row[rFields.indexOf("ModeloID")]
+                var NombreModelo = row[rFields.indexOf("NombreModelo")]
                 modelos[ModeloID] = NombreModelo
             }
             return modelos
@@ -150,12 +133,12 @@ TireBits = new function(){
             data:{}
         })
         .then(function(r){
-            let tipos = {}
+            var tipos = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let TipoID = row[rFields.indexOf("MedidaID")]
-                let NombreTipo = row[rFields.indexOf("NombreMedida")]
+            for(var row of rows){
+                var TipoID = row[rFields.indexOf("MedidaID")]
+                var NombreTipo = row[rFields.indexOf("NombreMedida")]
                 tipos[TipoID] = NombreTipo
             }
             return tipos
@@ -174,12 +157,12 @@ TireBits = new function(){
             }
         })
         .then(function(r){
-            let lugares = {}
+            var lugares = {}
             rows = r.Result;
             rFields = r.Fields
-            for(let row of rows){
-                let LugarID = row[rFields.indexOf("LugarID")]
-                let Nombre = row[rFields.indexOf("Nombre")]
+            for(var row of rows){
+                var LugarID = row[rFields.indexOf("LugarID")]
+                var Nombre = row[rFields.indexOf("Nombre")]
                 lugares[LugarID] = Nombre
             }
             return lugares
@@ -199,8 +182,8 @@ TireBits = new function(){
                 if (r.Result.length == 0){
                     return false
                 }
-                let row = r.Result[0];
-                let rFields = r.Fields;
+                var row = r.Result[0];
+                var rFields = r.Fields;
 
                 Config.Usuario = usuario;
                 Config.Nombre  = row[rFields.indexOf("Nombre")]
@@ -220,15 +203,15 @@ TireBits = new function(){
             })
             .then(function(r){
                 console.log(r)
-                let rows = r.Result;
-                let rFields = r.Fields;
+                var rows = r.Result;
+                var rFields = r.Fields;
                 
-                let Empresas = []
+                var Empresas = []
                 var ultimaEmpresa = {EmpresaID:""};
                 
-                for(let row of rows){
+                for(var row of rows){
                     if (!(row[rFields.indexOf("EmpresaID")] == ultimaEmpresa.EmpresaID)){
-                        let Empresa = {
+                        var Empresa = {
                             EmpresaID: row[rFields.indexOf("EmpresaID")],
                             NombreEmpresa: row[rFields.indexOf("NombreEmpresa")],
                             CorreoElectronico: row[rFields.indexOf("CorreoElectronico")],
@@ -238,7 +221,7 @@ TireBits = new function(){
                         Empresas.push(Empresa)
                         ultimaEmpresa = Empresa
                     }
-                    let Base = {
+                    var Base = {
                         EmpresaID: row[rFields.indexOf("EmpresaID")],
                         BaseID: row[rFields.indexOf("BaseID")],
                         NombreBase: row[rFields.indexOf("NombreBase")]
@@ -280,9 +263,9 @@ TireBits = new function(){
                 var base
                 if (r.RowsCount){
                     base = {}
-                    let row = r.Result[0]
-                    let fields = r.Fields
-                    for (let field of fields){
+                    var row = r.Result[0]
+                    var fields = r.Fields
+                    for (var field of fields){
                         base[field] = row[fields.indexOf(field)]
                     }
                 }
@@ -306,9 +289,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Base = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Base[field] = row[fields.indexOf(field)]
                         }
                         Bases.push(Base)
@@ -345,9 +328,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Almacen = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Almacen[field] = row[fields.indexOf(field)]
                         }
                         Almacenes.push(Almacen)
@@ -384,9 +367,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Vehiculo = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Vehiculo[field] = row[fields.indexOf(field)]
                         }
                         Vehiculos.push(Vehiculo)
@@ -422,9 +405,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Medicion = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Medicion[field] = row[fields.indexOf(field)]
                         }
                         MedicionesVehiculos.push(Medicion)
@@ -460,9 +443,9 @@ TireBits = new function(){
                 var vehiculo
                 if (r.RowsCount){
                     vehiculo = {}
-                    let row = r.Result[0]
-                    let fields = r.Fields
-                    for (let field of fields){
+                    var row = r.Result[0]
+                    var fields = r.Fields
+                    for (var field of fields){
                         vehiculo[field] = row[fields.indexOf(field)]
                     }
                 }
@@ -530,9 +513,9 @@ TireBits = new function(){
                 var llanta
                 if (r.RowsCount){
                     llanta = {}
-                    let row = r.Result[0]
-                    let fields = r.Fields
-                    for (let field of fields){
+                    var row = r.Result[0]
+                    var fields = r.Fields
+                    for (var field of fields){
                         llanta[field] = row[fields.indexOf(field)]
                     }
                 }
@@ -566,9 +549,9 @@ TireBits = new function(){
                 var medicionLlanta
                 if (r.RowsCount){
                     medicionLlanta = {}
-                    let row = r.Result[0]
-                    let fields = r.Fields
-                    for (let field of fields){
+                    var row = r.Result[0]
+                    var fields = r.Fields
+                    for (var field of fields){
                         medicionLlanta[field] = row[fields.indexOf(field)]
                     }
                 }
@@ -603,9 +586,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Llanta = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Llanta[field] = row[fields.indexOf(field)]
                         }
                         Llantas.push(Llanta)
@@ -641,9 +624,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var Medicion = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             Medicion[field] = row[fields.indexOf(field)]
                         }
                         MedicionesLlantas.push(Medicion)
@@ -679,9 +662,9 @@ TireBits = new function(){
                 if(r.OK){
                     var rows = r.Result
                     var fields = r.Fields
-                    for(let row of rows){
+                    for(var row of rows){
                         var EstadoLlanta = {}
-                        for(let field of fields){
+                        for(var field of fields){
                             EstadoLlanta[field] = row[fields.indexOf(field)]
                         }
                         EstadosLlanta.push(EstadoLlanta)
@@ -753,5 +736,4 @@ TireBits = new function(){
             
         }
     }
-    
 }

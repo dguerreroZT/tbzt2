@@ -15,7 +15,7 @@ Core = new function(){
     }
     
     this.getData = function(tableName){
-        let val = localStorage.getItem(tableName)
+        var val = localStorage.getItem(tableName)
         if(val == ""){return false}
         return JSON.parse(localStorage.getItem(tableName))
     }
@@ -25,8 +25,9 @@ Core = new function(){
     }
 
     this.request = function(config){
+        console.log(config)
         return new Promise(function(fnResolve, fnReject){
-            console.log(config)
+            try{
           $.ajax({
             url: config.url,
             type: "POST",
@@ -46,6 +47,9 @@ Core = new function(){
             }
 
           });
+            }catch(err){
+                fnReject(err)
+            }
         })
     }
 }

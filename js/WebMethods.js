@@ -1,3 +1,6 @@
+testMode = false;
+urlServer = testMode ? '../' : "http://tirebits.mx/ws2/"
+
 webMethods = {
         Login:'General.asmx/Login',
         ObtenerAccesoBases:'Empresa.asmx/ObtenerAccesoBases',
