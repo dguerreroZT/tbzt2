@@ -50,3 +50,9 @@
 .modal.bottom-sheet.panelUbicacion{
     max-height: 70%
 }
+
+
+img{
+    width: 60px;
+    border-radius: 10px;
+}
