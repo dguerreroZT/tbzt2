@@ -51,3 +51,8 @@
     .autocomplete-content label{
       color: #000;
     }
+
+img{
+    width: 60px;
+    border-radius: 10px;
+}
