@@ -15,12 +15,6 @@ div .containerImg{
 	height: 120px;
 }
 
-
-img{
-    width: 60px;
-    border-radius: 10px;
-}
-
 @media only screen and (max-height: 700px) {
     .parallax-container{
         height: 100px;
