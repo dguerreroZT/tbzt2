@@ -1,4 +1,4 @@
-testMode = false;
+testMode = true;
 urlServer = testMode ? '../' : "http://tirebits.mx/ws2/"
 
 webMethods = {

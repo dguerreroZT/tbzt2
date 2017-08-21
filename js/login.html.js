@@ -15,7 +15,6 @@ $(function(){
                 }
             })
             .catch(function(msg){
-                alert("unResolved")
                 alert(msg)
             })
         
