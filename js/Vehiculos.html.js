@@ -2,7 +2,24 @@
 	$('.animsition').animsition();
     
 	function cargarListado(){
-		spawn(function *(){
+		TireBits.Vehiculos.listado()
+        .then(function (Vehiculos){
+            for(var Vehiculo of Vehiculos){
+                agregarElementoListado({
+                    div:"lstVehiculos",
+                    data:{
+                        idElement: Vehiculo.VehiculoID,
+                        Icon:"local_shipping",
+                        Titulo: "Número Económico: " + Vehiculo.NoEconomico,
+                        Subtitulo1: Vehiculo.Marca + "; " + Vehiculo.Modelo,
+                        Subtitulo2: "<b>Placas: </b>" + Vehiculo.Placas
+                    }
+                })
+            }
+        })
+        
+        /*
+        spawn(function *(){
 			try{
 				let Vehiculos = yield TireBits.Vehiculos.listado("abcd")
 
@@ -24,6 +41,7 @@
 			}
 
 		})
+        */
 	}
     
     clickElement = function(VehiculoID){

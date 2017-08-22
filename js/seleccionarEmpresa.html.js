@@ -29,7 +29,35 @@ $(function(){
     }
     
     function cargarListado(){
-		spawn(function *(){
+		try{
+            TireBits.Usuarios.obtenerAccesoBases("Super")
+            .then(function(Empresas){
+                var empPromises = Empresas.map(obtenerHtmlEmpresa)
+                Promise.all(empPromises)
+                .then(function(){
+                    for(var empPromise of empPromises){
+                        empPromise.then(function(emp){
+                            $("#lstEmpresas").append(emp.html)
+
+                            var basePromises = emp.Bases.map(obtenerHtmlBase)
+                            Promise.all(basePromises)
+                            .then(function(){
+                                for(var basePromise of basePromises){
+                                    basePromise.then(function(base){
+                                        $("#" + emp.EmpresaID).append(base.html)
+                                    })
+                                }
+                            })
+                        })
+                    }
+                })
+            })
+        }catch(err){
+            console.log(err)
+        }
+        
+        /*
+        spawn(function *(){
 			try{
 				let Empresas = yield TireBits.Usuarios.obtenerAccesoBases("Super")
 				let empPromises = Empresas.map(obtenerHtmlEmpresa)
@@ -53,6 +81,7 @@ $(function(){
 			}
 
 		})
+        */
 	}
     
     
