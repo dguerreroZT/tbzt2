@@ -4,9 +4,9 @@
     var ListadoVehiculosMediciones = []
     
     function agregarFila(Medicion){
-        let row = $("<tr>")
-        let col_Fecha  = $("<td>").html(getDateValue(Medicion.Fecha)); 
-        let col_Kilometraje  = $("<td>").html(Medicion.Kilometraje); 
+        var row = $("<tr>")
+        var col_Fecha  = $("<td>").html(getDateValue(Medicion.Fecha)); 
+        var col_Kilometraje  = $("<td>").html(Medicion.Kilometraje); 
         
         
         row.append(col_Fecha)
@@ -19,7 +19,17 @@
     
     
 	function cargarListadoMediciones(){
-		spawn(function *(){
+		var vehiculoID = urlParams.id || ""
+        TireBits.Vehiculos.listadoMediciones(vehiculoID)
+        .then(function(Mediciones){
+            ListadoVehiculosMediciones = Mediciones
+            for (var Medicion of ListadoVehiculosMediciones){
+                agregarFila(Medicion)
+            }
+        })
+                
+        /*
+        spawn(function *(){
 			try{
                 let vehiculoID = urlParams.id || ""
 				let Mediciones = yield TireBits.Vehiculos.listadoMediciones(vehiculoID)
@@ -33,9 +43,27 @@
 			}
 
 		})
+        */
 	}
 
     function cargarDatos(){
+        var vehiculoID = urlParams.id || ""
+        TireBits.Vehiculos.obtener(vehiculoID)
+        .then(function(vehiculo){
+            if(vehiculo){
+                $("#txtNoEconomico").html(vehiculo.NoEconomico)
+                $("#txtMarca").html(vehiculo.Marca)
+                $("#txtModelo").html(vehiculo.Modelo)
+                $("#txtAño").html(vehiculo.Año)
+                $("#txtFechaUltimaMedicion").html(getDateValue(vehiculo.FechaUltimaMedicion))
+                $("#txtKilometraje").html(vehiculo.Kilometraje)
+                
+                
+                Materialize.updateTextFields();
+            }
+        })
+            
+        /*
         return spawn(function *(){
             let vehiculoID = urlParams.id || ""
             let vehiculo = yield TireBits.Vehiculos.obtener(vehiculoID)
@@ -52,9 +80,10 @@
                 Materialize.updateTextFields();
             }
         })
+        */
     }
 
-    $("#btnEditar").click(function(){
+    $("#btnEditar").on('click touchstart', function(){
         window.location = "EditarVehiculo.html?id=" + urlParams.id || ""
     })
     

@@ -5,8 +5,8 @@ $(function(){
     function obtenerHtmlEmpresa(emp){
         return loadContent("seleccionarEmpresa_Empresas.html")
         .then(function(html){
-            for (let property in emp){
-                let sVal = new RegExp("{{" + property + "}}", "g")
+            for (var property in emp){
+                var sVal = new RegExp("{{" + property + "}}", "g")
                 html = html.replace(sVal, emp[property]);
             }
             emp.html = html; /// asignamos el html como propiedad del objeto
@@ -18,8 +18,8 @@ $(function(){
     function obtenerHtmlBase(base){
         return loadContent("seleccionarEmpresa_Bases.html")
         .then(function(html){
-            for (let property in base){
-                let sVal = new RegExp("{{" + property + "}}", "g")
+            for (var property in base){
+                var sVal = new RegExp("{{" + property + "}}", "g")
                 html = html.replace(sVal, base[property]);
             }
             base.html = html; /// asignamos el html como propiedad del objeto
@@ -86,9 +86,11 @@ $(function(){
     
     
     cargarBase = function(EmpresaID, BaseID){
-        spawn(function *(){
-            let terminado = yield TireBits.Bases.ingresar(EmpresaID, BaseID)
-            window.location = "menu2.html"
+        TireBits.Bases.ingresar(EmpresaID, BaseID)
+        .then(function(terminado){
+            if(terminado){
+                window.location = "menu2.html"
+            }
         })
     }
     

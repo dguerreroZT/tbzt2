@@ -2,7 +2,27 @@
 	$('.animsition').animsition();
     
 	function cargarListado(){
-		spawn(function *(){
+		TireBits.Almacenes.listado()
+        .then(function(Almacenes){
+            var sequence = Promise.resolve()
+            
+            Almacenes.forEach(function(Almacen){
+                sequence = sequence.then(function(){
+                    return agregarElementoListado({
+                        div:"lstAlmacenes",
+                        data:{
+                            idElement: Almacen.AlmacenID,
+                            Icon:"pin_drop",
+                            Titulo: "Almacen: " + Almacen.Nombre,
+                            Subtitulo1: Almacen.DirCalle + " " + Almacen.DirNumero + ", " + Almacen.DirColonia,
+                            Subtitulo2: "<b>Teléfono: </b>" + Almacen.Telefono
+                        }
+                    })
+                })
+            })
+        })
+        /*
+        spawn(function *(){
 			try{
 				let Almacenes = yield TireBits.Almacenes.listado()
                 console.log(Almacenes)
@@ -23,7 +43,7 @@
 				console.log(err)
 			}
 
-		})
+		})*/
 	}
     
     clickElement = function(AlmacenID){

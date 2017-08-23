@@ -3,12 +3,12 @@
     var ListadoLlantas = []
     
     function buscar(str, limit){
-        let llantasFiltradas = []
+        var llantasFiltradas = []
         if(str == ""){llantasFiltradas = ListadoLlantas}
         else{
             str = str.toUpperCase()
-            let i = 0
-            for (let llanta of ListadoLlantas){
+            var i = 0
+            for (var llanta of ListadoLlantas){
                 if(
                     llanta.NoEconomico.toUpperCase().includes(str) || 
                     llanta.Marca.toUpperCase().includes(str)
@@ -22,18 +22,18 @@
         }
         
         $("#tbLlantas").empty()
-        for (let llantaFiltrada of llantasFiltradas){
+        for (var llantaFiltrada of llantasFiltradas){
             agregarFila(llantaFiltrada)
         }
     
     }
     
     function agregarFila(Llanta){
-        let row = $("<tr>")
-        let col_NoEconomico  = $("<td>").html(Llanta.NoEconomico); 
-        let col_Marca  = $("<td>").html(Llanta.Marca); 
-        let col_Presion  = $("<td>").html(Llanta.Presion); 
-        let col_Profundidad  = $("<td>").html(Llanta.Profundidad); 
+        var row = $("<tr>")
+        var col_NoEconomico  = $("<td>").html(Llanta.NoEconomico); 
+        var col_Marca  = $("<td>").html(Llanta.Marca); 
+        var col_Presion  = $("<td>").html(Llanta.Presion); 
+        var col_Profundidad  = $("<td>").html(Llanta.Profundidad); 
         
         
         row.append(col_NoEconomico)
@@ -52,7 +52,15 @@
     
     
 	function cargarListado(){
-		spawn(function *(){
+		TireBits.Llantas.listado()
+        .then(function(Llantas){
+            for (var Llanta of Llantas){
+                agregarFila(Llanta)
+            }
+        })
+        
+        /*
+        spawn(function *(){
 			try{
 				let Llantas = yield TireBits.Llantas.listado()
                 ListadoLlantas = Llantas
@@ -64,7 +72,7 @@
 				console.log(err)
 			}
 
-		})
+		})*/
 	}
     
     function cerrarBusqueda(){		
@@ -80,14 +88,14 @@
     //var fnBuscar
     
     $("#Buscar").bind("change paste keyup",function(){
-        let str = $("#Buscar").val()
+        var str = $("#Buscar").val()
         buscar(str)
         //if(fnBuscar){clearTimeout(fnBuscar)}
         //fnBuscar = setTimeout(buscarCompleto,1000)
     })
 
     $("#Buscar").focusout(function(){
-        let str = $("#Buscar").val()
+        var str = $("#Buscar").val()
         if (str == ""){
             cerrarBusqueda()
         }
