@@ -4,6 +4,30 @@
 
 
     function cargarDatos(){
+        var baseID = urlParams.id || ""
+        TireBits.Bases.obtener(baseID)
+        .then(function(base){
+            if(base){
+                $("#txtNombre").html("Base " + base.Nombre)
+                $("#txtCalle").html(base.DirCalle)
+                $("#txtNumero").html(base.DirNumero)
+                $("#txtColonia").html(base.DirColonia)
+                $("#txtMunicipio").html(base.DirMunicipio)
+                $("#txtEstado").html(base.DirEstado)
+                $("#txtCodigoPostal").html(base.DirCodigoPostal)
+                $("#txtTelefono").html(base.Telefono)
+                $("#txtFax").html(base.Fax)
+                $("#txtCorreoElectronico").html(base.CorreoElectronico)
+                $("#txtNotas").html(base.Notas)
+
+
+
+                Materialize.updateTextFields();
+            }
+        })
+
+        
+        /*
         return spawn(function *(){
             let baseID = urlParams.id || ""
             let base = yield TireBits.Bases.obtener(baseID)
@@ -25,7 +49,7 @@
                 
                 Materialize.updateTextFields();
             }
-        })
+        })*/
     }
 
     $("#btnEditar").click(function(){

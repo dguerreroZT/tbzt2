@@ -246,9 +246,12 @@
     
     this.Bases = {
         ingresar:function(EmpresaID, BaseID){
-            Config.EmpresaID = EmpresaID
-            Config.BaseID = BaseID
-            guardarConfiguracion()
+            return new Promise(function(fnResolve){
+                Config.EmpresaID = EmpresaID
+                Config.BaseID = BaseID
+                guardarConfiguracion()
+                fnResolve(true)
+            })
         },
         obtener:function(BaseID){
             return Core.request({

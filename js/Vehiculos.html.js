@@ -4,18 +4,22 @@
 	function cargarListado(){
 		TireBits.Vehiculos.listado()
         .then(function (Vehiculos){
-            for(var Vehiculo of Vehiculos){
-                agregarElementoListado({
-                    div:"lstVehiculos",
-                    data:{
-                        idElement: Vehiculo.VehiculoID,
-                        Icon:"local_shipping",
-                        Titulo: "Número Económico: " + Vehiculo.NoEconomico,
-                        Subtitulo1: Vehiculo.Marca + "; " + Vehiculo.Modelo,
-                        Subtitulo2: "<b>Placas: </b>" + Vehiculo.Placas
-                    }
-                })
-            }
+            var sequence = Promise.resolve();
+            
+            Vehiculos.forEach(function(Vehiculo){
+                sequence = sequence.then(function(){
+                    return agregarElementoListado({
+                        div:"lstVehiculos",
+                        data:{
+                            idElement: Vehiculo.VehiculoID,
+                            Icon:"local_shipping",
+                            Titulo: "Nº Económico: " + Vehiculo.NoEconomico,
+                            Subtitulo1: Vehiculo.Marca + "; " + Vehiculo.Modelo,
+                            Subtitulo2: "<b>Placas: </b>" + Vehiculo.Placas
+                        }
+                    })
+                }) 
+            })
         })
         
         /*
@@ -48,16 +52,16 @@
         window.location = "Vehiculo.html?id=" + VehiculoID
     }
     
-    $("#btnAdd").click(function(){
+    $("#btnAdd").on('click touchstart',function(){
 		window.location = "editarVehiculo.html"
 	})
 
-    $("#btnSearch").click(function(){
+    $("#btnSearch").on('click touchstart', function(){
         $("#navBuscar").css({display:"block"})
         $("#Buscar").focus();        
     })
 
-    $("#cerrarBusqueda").click(function(){
+    $("#cerrarBusqueda").on('click touchstart', function(){
         $("#navBuscar").css({display:"none"})
         $("#Buscar").val("");        
     })
