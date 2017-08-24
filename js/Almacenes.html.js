@@ -1,6 +1,7 @@
 ﻿$(function(){
 	$('.animsition').animsition();
     
+    //se cargan los datos de los almacenes 
 	function cargarListado(){
 		TireBits.Almacenes.listado()
         .then(function(Almacenes){
@@ -11,6 +12,7 @@
                     return agregarElementoListado({
                         div:"lstAlmacenes",
                         data:{
+                        	//concatenacion de los datos de cada almacen
                             idElement: Almacen.AlmacenID,
                             Icon:"pin_drop",
                             Titulo: "Almacen: " + Almacen.Nombre,
@@ -54,6 +56,7 @@
 		window.location = "Almacen.html"
 	})
 
+    //funciones para cambiar el focus en la busqueda
     $("#btnSearch").click(function(){
         $("#navBuscar").css({display:"block"})
         $("#Buscar").focus();        

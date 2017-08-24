@@ -5,6 +5,7 @@ $(function() {
     
     var TipoVehiculo = ""
     
+    //funcion para guardar los datos de cada campo del formulario
     function guardarDatos(){
         var vehiculo = {
             VehiculoID: urlParams.id || "",
@@ -46,6 +47,7 @@ $(function() {
         */
     }
     
+    //carga los datos de cada vehiculo
     function cargarDatos(){
         var vehiculoID = urlParams.id || ""
         TireBits.Vehiculos.obtener(vehiculoID)
@@ -85,6 +87,7 @@ $(function() {
         */
     }
     
+    //carga los tipos de vehiculos en el modal
     function cargarTiposVehiculos(){
         TireBits.obtenerTiposVehiculos()
         .then(function(TiposVehiculos){
@@ -122,6 +125,7 @@ $(function() {
         */
     }
     
+    //muestra los datos de marcas en el autocomplete
     function cargarMarcasVehiculos(){
         TireBits.obtenerMarcasVehiculos()
         .then(function(MarcasVehiculos){
@@ -159,6 +163,7 @@ $(function() {
         */
     }
     
+    //muestra los datos de modelos en el autocomplete
     function cargarModelosVehiculos(){
         TireBits.obtenerModelosVehiculos()
         .then(function(ModelosVehiculos){

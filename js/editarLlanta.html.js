@@ -2,6 +2,7 @@ $(function() {
     $('select').material_select();
     $('.modal').modal();
     
+    //funcion que toma los datos de cada campo para guardarlos
     function guardarDatos(){
         var llanta = {
             LlantaID: urlParams.id || "",
@@ -40,6 +41,7 @@ $(function() {
         */
     }
     
+    //carga los datos de cada llanta
     function cargarDatos(){
         var llantaID = urlParams.id || ""
         TireBits.Llantas.obtener(llantaID)
@@ -75,7 +77,7 @@ $(function() {
         */
     }
     
-    
+    //funcion que trae los datos de las marcas y los muestra en el campo autocomplete
     function cargarMarcasLlantas(){
         TireBits.obtenerMarcasLlantas() 
         .then(function(MarcasLlantas){
@@ -113,7 +115,7 @@ $(function() {
         })
         */
     }
-    
+    //funcion que trae los datos de las modelos y los muestra en el campo autocomplete
     function cargarModelosLlantas(){
         TireBits.obtenerModelosLlantas() 
         .then(function(ModelosLlantas){
@@ -151,7 +153,7 @@ $(function() {
         })
         */
     }
-    
+    //funcion que trae los datos de las medidas y los muestra en el campo autocomplete
     function cargarMedidasLlantas(){
         TireBits.obtenerMedidasLlantas()
         .then(function(MedidasLlantas){
@@ -188,6 +190,7 @@ $(function() {
         })*/
     }
     
+    //llamada a las funciones para cargar los datos autocomplete
     function cargarListas(){
         cargarMarcasLlantas()
         cargarModelosLlantas()

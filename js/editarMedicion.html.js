@@ -1,7 +1,7 @@
 $(function() {
     $('select').material_select();
     $('.modal').modal();
-    
+    //declaracion de variables globales 
     var UbicacionActual = {
         Ubicacion: '',
         DescripcionUbicacion: '',
@@ -17,6 +17,7 @@ $(function() {
     var Almacenes = []
     var Vehiculos = []
     
+    //funcion para obtener el valor del semaforo
     function obtenerHtmlSemaforo(semaforo){
         return loadContent("editarMedicion_Semaforo.html")
         .then(function(html){
@@ -30,6 +31,7 @@ $(function() {
         })
     }
     
+    //Funcion que muestra los estados de la llanta en el modal
     function cargarListadoEstados(){
 		var llantaID = urlParams.llanta || ""
         TireBits.Llantas.obtenerEstado(llantaID)
@@ -134,13 +136,13 @@ $(function() {
     }
     
     
-   
+   //funcion para mostrar el modal de edicion de ubicacion
     $("#btnCorregirUbicacion").click(function(){
         $("#cboUbicacion").val(UbicacionActual.Ubicacion)
         $("#cboUbicacion").val(UbicacionActual.Ubicacion)
         
     })
-    
+    //funcion para mostrar el modal de edicion de kilometraje
     $("#btnCorregirKilometraje").click(function(){
         $("#txtKilometraje").val(UbicacionActual.Kilometraje)
         Materialize.updateTextFields();

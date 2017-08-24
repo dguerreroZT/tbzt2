@@ -2,6 +2,7 @@
 	$('.animsition').animsition();
     var ListadoLlantas = []
     
+    //funcion para filtrar la llanta por numero economico o marca
     function buscar(str, limit){
         var llantasFiltradas = []
         if(str == ""){llantasFiltradas = ListadoLlantas}
@@ -28,6 +29,7 @@
     
     }
     
+    //si se agrega una nueva llanta se agregan filas a la tabla
     function agregarFila(Llanta){
         var row = $("<tr>")
         var col_NoEconomico  = $("<td>").html(Llanta.NoEconomico); 

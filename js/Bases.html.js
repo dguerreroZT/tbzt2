@@ -1,6 +1,7 @@
 ﻿$(function(){
 	$('.animsition').animsition();
     
+    //funcion para mostrar los datos de cada base    
 	function cargarListado(){
 		spawn(function *(){
 			try{

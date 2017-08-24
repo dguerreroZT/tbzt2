@@ -7,6 +7,7 @@ $(function() {
       $('.parallax').parallax();
    });
     
+    //funcion que toma los datos de cada campo del formulario y los guarda
     function guardarDatos(){
         var base = {
             BaseID: urlParams.id || "",
@@ -23,6 +24,7 @@ $(function() {
             Notas:$("#txtNotas").val()
         }
 
+        //al guardar los datos manda a la ventana de vehiculos
         TireBits.Vehiculos.guardar(vehiculo)
         .then(function(vehiculoGuardado){
             if(vehiculoGuardado){
@@ -54,6 +56,7 @@ $(function() {
         })*/
     }
     
+    //funcion que muestra los datos previamente guardados
     function cargarDatos(){
         var baseID = urlParams.id || ""
         TireBits.Bases.obtener(baseID)

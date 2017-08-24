@@ -3,6 +3,7 @@
      $('.parallax').parallax();
     var ListadoLlantasMediciones = []
     
+    //funcion que agrega una nueva fila a la tabla
     function agregarFila(Medicion){
         var row = $("<tr>")
         var col_Fecha  = $("<td>").html(getDateValue(Medicion.Fecha)); 
@@ -19,7 +20,7 @@
         return true
     }
     
-    
+    //carga las mediciones de cada llanta
 	function cargarListadoMediciones(){
         var llantaID = urlParams.id || ""
         TireBits.Llantas.listadoMediciones(llantaID)
@@ -48,10 +49,12 @@
 		})*/
 	}
 
+    //funcion que carga los datos de la llanta
     function cargarDatos(){
         var llantaID = urlParams.id || ""
         TireBits.Llantas.obtener(llantaID)
         .then(function(llanta){
+            //si existe la llanta muestra la informacion
             if(llanta){
                 $("#txtNoEconomico").html(llanta.NoEconomico)
                 $("#txtMarca").html(llanta.Marca)
@@ -63,6 +66,7 @@
                 
                 Materialize.updateTextFields();
             }else{
+                //si no hay informacion muestra un mensaje y regresa a la pantalla anterior
                 Materialize.toast('No se encontró información de esta llanta', 3000,'',function(){
                     window.location = "Llantas.html"
                 })
