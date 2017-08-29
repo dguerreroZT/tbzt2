@@ -2,7 +2,7 @@
 	//$('.animsition').animsition();
      $('.parallax').parallax();
 
-
+    //funcion para cargar los datos de la base
     function cargarDatos(){
         var baseID = urlParams.id || ""
         TireBits.Bases.obtener(baseID)
@@ -52,6 +52,7 @@
         })*/
     }
 
+    //al dar click al boton editar cambia de pantalla
     $("#btnEditar").click(function(){
         window.location = "EditarBase.html?id=" + urlParams.id || ""
     })

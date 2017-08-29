@@ -2,7 +2,7 @@
 	//$('.animsition').animsition();
      $('.parallax').parallax();
     var ListadoVehiculosMediciones = []
-    
+        
     function agregarFila(Medicion){
         var row = $("<tr>")
         var col_Fecha  = $("<td>").html(getDateValue(Medicion.Fecha)); 

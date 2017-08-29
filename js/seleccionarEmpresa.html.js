@@ -1,7 +1,7 @@
 $(function(){
 	$('.animsition').animsition();
     
-    
+    //funcion para cargar las empresas    
     function obtenerHtmlEmpresa(emp){
         return loadContent("seleccionarEmpresa_Empresas.html")
         .then(function(html){
@@ -15,6 +15,7 @@ $(function(){
         })
     }
     
+    //funcion para cargae las empresas
     function obtenerHtmlBase(base){
         return loadContent("seleccionarEmpresa_Bases.html")
         .then(function(html){
@@ -28,6 +29,7 @@ $(function(){
         })
     }
     
+    //si el usuario es super muestra todas las empresas y bases
     function cargarListado(){
 		try{
             TireBits.Usuarios.obtenerAccesoBases("Super")
